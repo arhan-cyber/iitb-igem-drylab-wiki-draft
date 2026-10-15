@@ -1,0 +1,73 @@
+<footer class="pt-5 pb-5 footer py-5 mt-5 bg-dark text-white">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-lg-6 col-xs-12">
+        <h4 class="mb-3">IIT Bombay iGEM 2026 · Dry Lab</h4>
+        <p>
+          Every figure on this site is a statement about a model. None of it has
+          been validated against wet-lab data. Status labels on each page say
+          what is computed, taken from literature, a hypothesis, or pending.
+        </p>
+      </div>
+      <div class="col-lg-3 col-xs-12">
+        <h4 class="mt-lg-0 mt-sm-3">Pages</h4>
+        <ul class="m-2 p-2">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('pages', page='model') }}">Model</a></li>
+          <li><a href="{{ url_for('pages', page='results') }}">Results</a></li>
+          <li>
+            <a href="{{ url_for('pages', page='engineering') }}">Engineering</a>
+          </li>
+          <li>
+            <a href="{{ url_for('pages', page='software') }}">Software</a>
+          </li>
+          <li>
+            <a href="{{ url_for('pages', page='contribution') }}"
+              >Contribution</a
+            >
+          </li>
+          <li>
+            <a href="{{ url_for('pages', page='sustainability') }}"
+              >Sustainability</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-xs-12">
+        <h4 class="mt-lg-0 mt-sm-4 mb-3">Code</h4>
+        <p>
+          Pre-flight tool (MIT):
+          <a href="https://github.com/Siddhant-Chowdhary/igem-preflight"
+            >github.com/Siddhant-Chowdhary/igem-preflight</a
+          >
+        </p>
+      </div>
+    </div>
+    <hr />
+    <!-- The following MUST be on every page: license information and link to the repository on gitlab.igem.org -->
+    <div class="row mt-4">
+      <div class="col">
+        <p class="mb-0">
+          <small
+            >© 2026 - Content on this site is licensed under a
+            <a
+              class="subfoot"
+              href="https://creativecommons.org/licenses/by/4.0/"
+              rel="license"
+              >Creative Commons Attribution 4.0 International license</a
+            >.</small
+          >
+        </p>
+        <p>
+          <small
+            >The repository used to create this website is available at
+            <a
+              href="https://gitlab.igem.org/templates/wiki-frozen-flask-markdown"
+              >gitlab.igem.org/templates/wiki-frozen-flask-markdown</a
+            >.</small
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
