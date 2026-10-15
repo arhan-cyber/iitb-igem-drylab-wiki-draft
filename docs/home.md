@@ -1,3 +1,4 @@
+<!-- autodeploy-test-20261015T193126 -->
 <!-- DRAFT built 2026-10-15 from the team's dry-lab documents and Linear. Items marked TODO need a human decision. -->
 
 <div class="alert alert-warning" role="alert" markdown="1">
