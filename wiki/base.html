@@ -1,19 +1,19 @@
 {%
   set pages =
   {
-  "/": "The computational work behind our fatty-acid-engineering project, told in the order we did it: from a residue, to a protein pocket, to the whole cell, to the coolant.",
-  "/contribution": "What our modelling work offers other teams: a checker for scoring functions, a benchmark showing when machine learning is not needed, and a screening LCA of a bio-based coolant.",
-  "/engineering": "Our Design, Build, Test, Learn cycle, including the strategy our own model told us to abandon.",
-  "/model": "Our models, their assumptions, data, parameters and results, in the order they build on each other. Every claim carries a status: computed, from literature, hypothesis, or pending.",
-  "/results": "The headline findings of the models, what they changed in our plan, and what is not yet validated.",
-  "/software": "Pre-flight: six automated checks that tell you whether your model's scoring function measures anything, before anyone acts on its ranking.",
-  "/sequence": "Step 1: which residue of the yeast fatty acid synthase corresponds to the one that sets chain length in Yarrowia.",
-  "/fas-interaction": "Step 2: does the KS pocket hold a C14 chain, which residues must we leave alone, and how much do the Boltz-2 results depend on setup.",
-  "/bridge": "Step 3: representing the mutation in a metabolic model as an early-release reaction.",
+  "/": "The modelling behind a fatty-acid-engineering project, in the order in which it was carried out: from a residue, to a protein pocket, to the whole cell, to the coolant.",
+  "/contribution": "What the modelling work offers other teams: a checker for scoring functions, a benchmark of when machine learning is not required, and a screening life cycle assessment of a bio-based coolant.",
+  "/engineering": "The Design, Build, Test, Learn cycle, including the strategy that the model indicated should be abandoned.",
+  "/model": "The models, their assumptions, data, parameters and results, in the order in which they build on each other. Every claim carries a status: computed, from literature, hypothesis, or pending.",
+  "/results": "The headline findings of the models, the changes they prompted in the plan, and what has not been validated.",
+  "/software": "Pre-flight: six automated checks that test whether the scoring function of a model measures anything, before its ranking is acted upon.",
+  "/sequence": "Step 1: the residue of yeast fatty acid synthase that corresponds to the chain-length-determining residue in Yarrowia.",
+  "/fas-interaction": "Step 2: whether the KS pocket accommodates a C14 chain, which residues must remain unaltered, and how far the Boltz-2 results depend on setup.",
+  "/bridge": "Step 3: representation of the mutation in a metabolic model as an early-release reaction.",
   "/metabolism": "Step 4: what the whole cell can reach, at what growth cost, by flux balance analysis.",
-  "/trust": "Step 5: whether a strain-design ranking means anything, and whether learned search is needed.",
-  "/process": "Step 6: connecting the strain to its use as a coolant.",
-  "/life-cycle-assessment": "A screening-level life cycle assessment of methyl myristate as a bio-based immersion coolant, with its limits stated up front."
+  "/trust": "Step 5: whether a strain-design ranking is informative, and whether learned search is required.",
+  "/process": "Step 6: connection of the strain to its use as a coolant.",
+  "/life-cycle-assessment": "A screening-level life cycle assessment of methyl myristate as a bio-based immersion coolant, with its limits stated first."
   }
 %}
 {% set model_tabs = [
@@ -45,6 +45,9 @@
       rel="stylesheet"
     />
 
+    <!-- Reading mode (Brief / Full): sets the stored mode before first paint -->
+    <script src="{{ url_for('static', filename = 'reading-mode.js') }}"></script>
+
     <title>{{ title }} | IIT Bombay iGEM 2026</title>
   </head>
   <body>
@@ -62,6 +65,19 @@
         </div>
       </div>
     </header>
+
+    <!-- Reading mode toolbar (shown by JavaScript only; without it the full text is displayed) -->
+    <div class="reading-bar" id="reading-bar" hidden>
+      <div class="container">
+        <span class="rb-label" id="rb-label">Reading depth</span>
+        <div class="seg" role="group" aria-labelledby="rb-label">
+          <button type="button" id="mBrief" aria-pressed="false">Brief</button>
+          <button type="button" id="mFull" aria-pressed="true">Full</button>
+        </div>
+        <button type="button" class="lnk" id="expandAll">Expand all</button>
+        <button type="button" class="lnk" id="collapseAll">Collapse all</button>
+      </div>
+    </div>
 
     <!-- Page Content -->
     <div class="container content">
