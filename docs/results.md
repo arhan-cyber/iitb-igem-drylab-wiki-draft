@@ -5,12 +5,12 @@ Every result below is a statement about a model and is **not validated against w
 
 ## Summary of findings
 
-1. **Wild-type yeast already makes pure C14:0 in the model, at a growth cost that is linear.** No knockout improves on it. [Details](model#metabolism)
-2. **The model makes C14:0 only by shortening C16:0 through beta-oxidation.** *POX1* is the committed step. [Details](model#metabolism)
-3. **A FAS early-release reaction raises C14:0 by only +2.6%.** The limit is NADPH, not chain supply. [Details](model#bridge)
-4. **The ScFAS2 site equivalent to the *Yarrowia* chain-length residue is V1254.** M1251 is excluded; the effect of V1254W in *S. cerevisiae* is an assumption. [Details](model#sequence)
-5. **Our own scoring failed its checks.** Best knockout beat doing nothing by 0.010%; the tool issued no proposals. [Details](model#trust)
-6. **A learned search lost to a trivial one.** Brute force and greedy beat reinforcement learning. [Details](model#trust)
+1. **Wild-type yeast already makes pure C14:0 in the model, at a growth cost that is linear.** No knockout improves on it. [Details](metabolism)
+2. **The model makes C14:0 only by shortening C16:0 through beta-oxidation.** *POX1* is the committed step. [Details](metabolism)
+3. **A FAS early-release reaction raises C14:0 by only +2.6%.** The limit is NADPH, not chain supply. [Details](bridge)
+4. **The ScFAS2 site equivalent to the *Yarrowia* chain-length residue is V1254.** M1251 is excluded; the effect of V1254W in *S. cerevisiae* is an assumption. [Details](sequence)
+5. **Our own scoring failed its checks.** Best knockout beat doing nothing by 0.010%; the tool issued no proposals. [Details](trust)
+6. **A learned search lost to a trivial one.** Brute force and greedy beat reinforcement learning. [Details](trust)
 7. **The coolant case is mixed.** [Details](life-cycle-assessment)
 
 ## 1. What the model says is reachable
@@ -50,7 +50,7 @@ One unbranched route: C16:0 → hexadecanoyl-CoA → acyl-CoA oxidase (*POX1*) �
 
 ## 4. Structural result: site and pocket
 
-V1254 (ScFAS2) corresponds to I1220 (YlFAS), with a 34-residue offset and no gaps at or beside the key column. In the first constrained Boltz-2 runs C14 sat 4.35 Å from V1254 and 6.91 Å from M1260 and clashed with M1251 at 0.96–1.77 Å, which we read as a closed conformational gate (**[hypothesis]**). Reruns on the lab server did not reproduce the clash, and distances moved with the choice of constrained residues, so these numbers describe the setup as well as the pocket. [Details](model#structure)
+V1254 (ScFAS2) corresponds to I1220 (YlFAS), with a 34-residue offset and no gaps at or beside the key column. In the first constrained Boltz-2 runs C14 sat 4.35 Å from V1254 and 6.91 Å from M1260 and clashed with M1251 at 0.96–1.77 Å, which we read as a closed conformational gate (**[hypothesis]**). Reruns on the lab server did not reproduce the clash, and distances moved with the choice of constrained residues, so these numbers describe the setup as well as the pocket. [Details](fas-interaction)
 
 ## 5. Our scoring failed its own checks
 

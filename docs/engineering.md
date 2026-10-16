@@ -1,5 +1,5 @@
 
-Our dry lab went through one full Design, Build, Test, Learn cycle, and the Test stage told us to change the design.
+Our modelling work went through one full Design, Build, Test, Learn cycle, and the Test stage told us to change the design.
 
 ## Design
 

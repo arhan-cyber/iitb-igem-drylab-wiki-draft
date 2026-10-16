@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="{{ url_for('home') }}">IIT Bombay iGEM · Dry Lab</a>
+    <a class="navbar-brand" href="{{ url_for('home') }}">IIT Bombay iGEM</a>
 
     <!-- SMALL SCREEN MENU ICON -->
     <button
@@ -21,77 +21,63 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('home') }}">Home</a>
         </li>
-        <!-- PROJECT -->
+
+        <!-- MODEL (everything modelling-related lives here) -->
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
-            id="navbar-project"
+            id="navbar-model"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Project
+            Model
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-project">
+          <ul class="dropdown-menu" aria-labelledby="navbar-model">
             <li>
-              <a
-                class="dropdown-item"
-                href="{{ url_for('pages', page='engineering') }}"
-                >Engineering</a
-              >
+              <a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Overview</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('pages', page='sequence') }}">1 Sequence</a>
             </li>
             <li>
-              <a
-                class="dropdown-item"
-                href="{{ url_for('pages', page='results') }}"
-                >Results</a
-              >
+              <a class="dropdown-item" href="{{ url_for('pages', page='fas-interaction') }}">2 FAS interaction</a>
             </li>
             <li>
-              <a
-                class="dropdown-item"
-                href="{{ url_for('pages', page='contribution') }}"
-                >Contribution</a
-              >
+              <a class="dropdown-item" href="{{ url_for('pages', page='bridge') }}">3 Bridge</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('pages', page='metabolism') }}">4 Metabolism</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('pages', page='trust') }}">5 Trust</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('pages', page='process') }}">6 Process</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('pages', page='results') }}">Results</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ url_for('pages', page='life-cycle-assessment') }}">Life Cycle Assessment</a>
             </li>
           </ul>
         </li>
-        <!-- DRY LAB -->
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbar-dry-lab"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Dry Lab
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbar-dry-lab">
-            <li>
-              <a
-                class="dropdown-item"
-                href="{{ url_for('pages', page='model') }}"
-                >Model</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="{{ url_for('pages', page='software') }}"
-                >Software</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item"
-                href="{{ url_for('pages', page='life-cycle-assessment') }}"
-                >Life Cycle Assessment</a
-              >
-            </li>
-          </ul>
+
+        <!-- SOFTWARE -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('pages', page='software') }}">Software</a>
+        </li>
+
+        <!-- CONTRIBUTION -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
         </li>
       </ul>
     </div>

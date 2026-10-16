@@ -2,14 +2,25 @@
   set pages =
   {
   "/": "The computational work behind our fatty-acid-engineering project, told in the order we did it: from a residue, to a protein pocket, to the whole cell, to the coolant.",
-  "/contribution": "What our dry lab offers other teams: a checker for scoring functions, a benchmark showing when machine learning is not needed, and a screening LCA of a bio-based coolant.",
-  "/engineering": "Our dry-lab Design, Build, Test, Learn cycle, including the strategy our own model told us to abandon.",
+  "/contribution": "What our modelling work offers other teams: a checker for scoring functions, a benchmark showing when machine learning is not needed, and a screening LCA of a bio-based coolant.",
+  "/engineering": "Our Design, Build, Test, Learn cycle, including the strategy our own model told us to abandon.",
   "/model": "Our models, their assumptions, data, parameters and results, in the order they build on each other. Every claim carries a status: computed, from literature, hypothesis, or pending.",
-  "/results": "The headline findings of the dry lab, what they changed in our plan, and what is not yet validated.",
+  "/results": "The headline findings of the models, what they changed in our plan, and what is not yet validated.",
   "/software": "Pre-flight: six automated checks that tell you whether your model's scoring function measures anything, before anyone acts on its ranking.",
+  "/sequence": "Step 1: which residue of the yeast fatty acid synthase corresponds to the one that sets chain length in Yarrowia.",
+  "/fas-interaction": "Step 2: does the KS pocket hold a C14 chain, which residues must we leave alone, and how much do the Boltz-2 results depend on setup.",
+  "/bridge": "Step 3: representing the mutation in a metabolic model as an early-release reaction.",
+  "/metabolism": "Step 4: what the whole cell can reach, at what growth cost, by flux balance analysis.",
+  "/trust": "Step 5: whether a strain-design ranking means anything, and whether learned search is needed.",
+  "/process": "Step 6: connecting the strain to its use as a coolant.",
   "/life-cycle-assessment": "A screening-level life cycle assessment of methyl myristate as a bio-based immersion coolant, with its limits stated up front."
   }
 %}
+{% set model_tabs = [
+  ('model', 'Overview'), ('sequence', '1 Sequence'), ('fas-interaction', '2 FAS interaction'),
+  ('bridge', '3 Bridge'), ('metabolism', '4 Metabolism'), ('trust', '5 Trust'), ('process', '6 Process'),
+  ('engineering', 'Engineering'), ('results', 'Results'), ('life-cycle-assessment', 'Life Cycle Assessment')
+] %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,7 +45,7 @@
       rel="stylesheet"
     />
 
-    <title>{{ title }} | IIT Bombay Dry Lab - iGEM 2026</title>
+    <title>{{ title }} | IIT Bombay iGEM 2026</title>
   </head>
   <body>
     <!-- Navigation -->
@@ -54,6 +65,17 @@
 
     <!-- Page Content -->
     <div class="container content">
+      {% if request.path.strip('/') in model_tabs | map(attribute=0) | list %}
+      <nav class="model-tabs mb-4" aria-label="Model sections">
+        <ul class="nav nav-pills flex-wrap">
+          {% for slug, label in model_tabs %}
+          <li class="nav-item">
+            <a class="nav-link py-1 px-3{% if request.path == '/' ~ slug %} active{% endif %}" href="{{ url_for('pages', page=slug) }}">{{ label }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
       <div class="row">
         <div class="col-12">
           {# <div class="col-12 col-lg-10 offset-lg-1"> #}

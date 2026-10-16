@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row mb-4">
       <div class="col-lg-6 col-xs-12">
-        <h4 class="mb-3">IIT Bombay iGEM 2026 · Dry Lab</h4>
+        <h4 class="mb-3">IIT Bombay iGEM 2026</h4>
         <p>
           Every figure on this site is a statement about a model. None of it has
           been validated against wet-lab data. Status labels on each page say
@@ -14,23 +14,11 @@
         <ul class="m-2 p-2">
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('pages', page='model') }}">Model</a></li>
+          <li><a href="{{ url_for('pages', page='engineering') }}">Engineering</a></li>
           <li><a href="{{ url_for('pages', page='results') }}">Results</a></li>
-          <li>
-            <a href="{{ url_for('pages', page='engineering') }}">Engineering</a>
-          </li>
-          <li>
-            <a href="{{ url_for('pages', page='software') }}">Software</a>
-          </li>
-          <li>
-            <a href="{{ url_for('pages', page='contribution') }}"
-              >Contribution</a
-            >
-          </li>
-          <li>
-            <a href="{{ url_for('pages', page='life-cycle-assessment') }}"
-              >Life Cycle Assessment</a
-            >
-          </li>
+          <li><a href="{{ url_for('pages', page='life-cycle-assessment') }}">Life Cycle Assessment</a></li>
+          <li><a href="{{ url_for('pages', page='software') }}">Software</a></li>
+          <li><a href="{{ url_for('pages', page='contribution') }}">Contribution</a></li>
         </ul>
       </div>
       <div class="col-lg-3 col-xs-12">

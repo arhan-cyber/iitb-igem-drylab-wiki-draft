@@ -1,11 +1,11 @@
 
 <div class="alert alert-warning" role="alert" markdown="1">
-**Draft status.** This site presents our dry-lab results as they currently stand. All results are statements about models. **None has been validated against wet-lab data.** Where something is unfinished, we say so on the page.
+**Draft status.** This site presents our modelling results as they currently stand. All results are statements about models. **None has been validated against wet-lab data.** Where something is unfinished, we say so on the page.
 </div>
 
-## What this dry lab did
+## What our modelling did
 
-Our team is engineering *Saccharomyces cerevisiae* to make a C14:0-rich fatty-acid product (myristic acid) that can be turned into methyl myristate, a bio-based immersion coolant for data centres. The dry lab asked one question at three scales and then asked whether the answer was worth trusting and worth making:
+Our team is engineering *Saccharomyces cerevisiae* to make a C14:0-rich fatty-acid product (myristic acid) that can be turned into methyl myristate, a bio-based immersion coolant for data centres. We asked one question at three scales and then asked whether the answer was worth trusting and worth making:
 
 1. **Sequence.** Which residue in the yeast fatty acid synthase (FAS) controls chain length?
 2. **FAS interaction.** Does the enzyme's binding pocket hold a C14 chain, and which residues must we leave alone?
@@ -23,7 +23,7 @@ Our team is engineering *Saccharomyces cerevisiae* to make a C14:0-rich fatty-ac
 
 | If you want… | Go to |
 |---|---|
-| Methods, assumptions, data, parameters, limits, in full | [Model](model) |
+| Methods, assumptions, data, parameters, limits | [Model](model), with one page per step |
 | The headline findings and what they changed | [Results](results) |
 | The design cycle we went through | [Engineering](engineering) |
 | The tool other teams can run on their own models | [Software](software) |

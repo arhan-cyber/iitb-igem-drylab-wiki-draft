@@ -84,7 +84,7 @@ On Windows, if activation reports "running scripts is disabled on this system", 
 - **Skip, do not crash**, when a capability is missing. Trade-off: a bare scoring function gets fewer checks.
 - **Refuse rather than warn** for D1 and D2. Trade-off: a user who wants a list anyway must fix the scoring first.
 - **Everything organism-specific lives in one YAML file.** The package is organism-agnostic.
-- **Brute force is the default search** at our scale (see [Model](model#trust)).
+- **Brute force is the default search** at our scale (see [Model](trust)).
 
 ## Architecture
 

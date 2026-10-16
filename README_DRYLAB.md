@@ -1,7 +1,7 @@
-# IIT Bombay iGEM 2026: dry-lab wiki (draft)
+# IIT Bombay iGEM 2026: modelling wiki (draft)
 
 Built on the iGEM template `wiki-frozen-flask-markdown` (Flask + Python-Markdown + Frozen-Flask).
-Only dry-lab pages are included. Pages are Markdown in `docs/`; layout in `wiki/`.
+Only the modelling pages are included. Model sub-tabs: overview, six step pages, Engineering, Results, Life Cycle Assessment; Software and Contribution are separate top-level tabs. Pages are Markdown in `docs/`; layout in `wiki/`.
 
 ## Pages (in reading order)
 Home -> Model (sequence, FAS interaction, bridge, metabolism, trust, process) -> Results ->

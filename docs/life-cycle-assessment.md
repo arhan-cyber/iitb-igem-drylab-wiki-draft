@@ -71,7 +71,7 @@ MM is the best of the three coolants on 8 of 9 reported metrics; the one it lose
 
 A coolant-selection comparison of methyl myristate and isopropyl myristate (IPM) scored MM about 9% higher on thermal figures of merit, a margin inside the uncertainty of estimated heat capacity and conductivity. It nonetheless recommended **IPM**, on operability: MM melts at about 18 °C, leaving about 2 °C of margin at a 20 °C inlet, while IPM melts at about 3 °C. The LCA also notes that MM melts at about 18.5 °C and that cold-start trace heating is not modelled. Neither ester can be certified for energised immersion until breakdown voltage, volume resistivity, dielectric loss and pour point are measured. This LCA models MM only. **[pending]** The team's decision between the two esters.
 
-## How this links to the rest of our dry lab
+## How this links to the rest of our model
 
 The yeast strain's output enters the LCA as MM. Three links are not yet consistent with the metabolic model: (1) the LCA borrows a fatty-acid profile from the *Yarrowia* I1220W result, which is the assumption our [Model](model#m4) flags as unsupported in *S. cerevisiae*; (2) it assumes xylose use from corn-stover hydrolysate, while the FBA optimises free C14:0 on glucose; (3) the FBA predicts free myristate, whereas the LCA models methyl myristate, so the esterification step must be stated. **[pending]** Replace the borrowed profile with the team strain's measured lipid content and C14 share.
 

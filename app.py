@@ -19,6 +19,13 @@ freezer = Freezer(app)
 MARKDOWN_EXTENSIONS = ['extra', 'sane_lists', 'smarty', 'toc']
 
 
+# Page titles where the slug does not title-case cleanly.
+TITLES = {
+    'fas-interaction': 'FAS Interaction',
+    'life-cycle-assessment': 'Life Cycle Assessment',
+}
+
+
 def render_markdown(page):
     """Read docs/<page>.md and convert it to an HTML fragment."""
     with open(f'docs/{page}.md', encoding='utf-8') as md_file:
@@ -47,7 +54,7 @@ def home():
 def pages(page):
     md_content = render_markdown(page.lower())
     return render_template('base.html',
-                           title=page.title().replace('-', ' '),
+                           title=TITLES.get(page.lower(), page.title().replace('-', ' ')),
                            md_content=md_content)
 
 
