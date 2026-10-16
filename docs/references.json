@@ -258,5 +258,78 @@
   "volume": 38,
   "pages": "4981-4983",
   "doi": "10.1093/bioinformatics/btac632"
+ },
+ {
+  "key": "iso14044",
+  "type": "standard",
+  "authors": "International Organization for Standardization",
+  "year": 2006,
+  "title": "ISO 14044:2006 Environmental management — Life cycle assessment — Requirements and guidelines",
+  "url": "https://www.iso.org/standard/38498.html",
+  "accessed": "2026-10-16"
+ },
+ {
+  "key": "iso14040",
+  "type": "standard",
+  "authors": "International Organization for Standardization",
+  "year": 2006,
+  "title": "ISO 14040:2006 Environmental management — Life cycle assessment — Principles and framework",
+  "note": "Cited by standard number; the catalogue page was not retrieved."
+ },
+ {
+  "key": "wernet2016",
+  "type": "database",
+  "authors": "Wernet G, Bauer C, Steubing B, Reinhard J, Moreno-Ruiz E, Weidema B",
+  "year": 2016,
+  "title": "The ecoinvent database version 3 (part I): overview and methodology",
+  "journal": "The International Journal of Life Cycle Assessment",
+  "volume": 21,
+  "pages": "1218-1230",
+  "doi": "10.1007/s11367-016-1087-8"
+ },
+ {
+  "key": "andreasi2023",
+  "type": "standard",
+  "authors": "Andreasi Bassi S, Biganzoli F, Ferrara N, Amadei A, et al.",
+  "year": 2023,
+  "title": "Updated characterisation and normalisation factors for the Environmental Footprint 3.1 method",
+  "note": "JRC Technical Report, EUR 31414 EN. Publications Office of the European Union.",
+  "doi": "10.2760/798894"
+ },
+ {
+  "key": "openlca",
+  "type": "software",
+  "authors": "GreenDelta GmbH",
+  "year": 2026,
+  "title": "openLCA: free, open-source life cycle assessment software",
+  "url": "https://www.openlca.org",
+  "accessed": "2026-10-16"
+ },
+ {
+  "key": "rivm_pfas",
+  "type": "web",
+  "authors": "National Institute for Public Health and the Environment (RIVM)",
+  "year": 2026,
+  "title": "PFAS restriction proposal",
+  "url": "https://rivm.nl/en/node/164811",
+  "accessed": "2026-10-16"
+ },
+ {
+  "key": "pubchem_mm",
+  "type": "database",
+  "authors": "National Center for Biotechnology Information",
+  "year": 2026,
+  "title": "PubChem compound summary for CID 31284, methyl myristate (melting point entries 18.5 and 19 °C)",
+  "url": "https://pubchem.ncbi.nlm.nih.gov/compound/31284",
+  "accessed": "2026-10-16"
+ },
+ {
+  "key": "pubchem_ipm",
+  "type": "database",
+  "authors": "National Center for Biotechnology Information",
+  "year": 2026,
+  "title": "PubChem compound summary for CID 8042, isopropyl myristate (melting point approximately 3 °C)",
+  "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8042",
+  "accessed": "2026-10-16"
  }
 ]

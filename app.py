@@ -104,8 +104,8 @@ def apply_citations(text, references):
                 cited[key] = {'key': key, 'num': len(order) + 1, 'where': [], 'notes': []}
                 order.append(cited[key])
             entry = cited[key]
-            where = (state['heading'], state['anchor'])
-            if state['heading'] and where not in entry['where']:
+            where = (state['heading'] or 'Introductory note', state['anchor'])
+            if where not in entry['where']:
                 entry['where'].append(where)
             note = (match.group(2) or '').strip()
             if note and note not in entry['notes']:
@@ -139,7 +139,8 @@ def references_html(order, references):
     rows = ''
     for e in order:
         ref = references[e['key']]
-        places = '; '.join(f'<a href="#{escape(a)}">{escape(h)}</a>' for h, a in e['where'])
+        places = '; '.join(f'<a href="#{escape(a)}">{escape(h)}</a>' if a else escape(h)
+                           for h, a in e['where'])
         if e['notes']:
             places += (' &mdash; ' if places else '') + escape('; '.join(e['notes']))
         rows += (f'<tr><td>{e["num"]}</td><td>{short_reference(ref)}</td><td>{places}</td></tr>')
