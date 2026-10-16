@@ -1,115 +1,184 @@
 
 <div class="alert alert-warning" role="alert" markdown="1">
-**Read this first.** Every number on the model pages describes a model. **None is validated against wet-lab data.** Labels: **[computed]** our own run; **[literature]** published source; **[hypothesis]** reasoned, untested; **[pending]** not finished.
+**Read this first.** Every number on the model pages describes a model. **None has been validated against wet-lab data.** Status labels: **[computed]** produced in this study; **[literature]** taken from a published source; **[hypothesis]** reasoned but untested; **[pending]** not completed.
 </div>
 
-## At a glance {#m0}
+## Overview of the modelling chain {#m0}
 
-- We worked in six steps, each handing one result to the next: sequence → FAS interaction → bridge → metabolism → trust → process (figure on the [home page](./)).
-- **Central assumption:** a point mutation in *S. cerevisiae* FAS2 (V1254W, by analogy with *Yarrowia* I1220W) can release C14 early. This is **[hypothesis]**, not established.
-- **Main findings:** the model makes C14:0 only by shortening C16:0 through beta-oxidation; no knockout beats wild type; an early-release reaction adds only +2.6% and is limited by NADPH; our own scoring setup failed its checks.
-- **Where to jump:** [Data](#m3) · [Assumptions](#m4) · [1 Sequence](sequence) · [2 FAS interaction](fas-interaction) · [3 Bridge](bridge) · [4 Metabolism](metabolism) · [5 Trust](trust) · [6 Process](process) · [Effect on design](#m6) · [Limits](#m7) · [Reproducibility](#m8) · [References](#m9). Also under Model: [Engineering](engineering), [Results](results), [Life Cycle Assessment](life-cycle-assessment).
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
 
-## Approach and what it tells us {#m1}
+The project asks whether baker's yeast could be engineered to make myristic acid, a 14-carbon fatty acid, for use in a bio-based data-centre coolant. Six linked computer models were built, none tested in the laboratory. The central assumption, that a single mutation (V1254W) releases this fatty acid early, is a hypothesis. **[hypothesis]**
+</div>
 
-| Step | Question | Method | What it provides |
+- The work was organised in six steps, each passing one result to the next: sequence → fatty acid synthase (FAS) interaction → bridge → metabolism → trust → process (figure on the [home page](./)).
+- **Central assumption:** a point mutation in *Saccharomyces cerevisiae* FAS2 (V1254W, by analogy with *Yarrowia lipolytica* I1220W) can release C14 early. This is a **[hypothesis]** and has not been established.
+- **Main findings:** the model forms C14:0 only by shortening C16:0 through β-oxidation; no knockout set exceeded wild type; an early-release reaction increased C14 export by only 2.6 % and is limited by NADPH; the team's scoring setup did not satisfy its own checks.
+- **Navigation:** [Data](#m3) · [Assumptions](#m4) · [1 Sequence](sequence) · [2 FAS interaction](fas-interaction) · [3 Bridge](bridge) · [4 Metabolism](metabolism) · [5 Trust](trust) · [6 Process](process) · [Effect on design](#m6) · [Limits](#m7) · [Reproducibility](#m8) · [References](#references). Further pages under Model: [Engineering](engineering), [Results](results), [Life Cycle Assessment](life-cycle-assessment).
+
+## Approach and outputs of each step {#m1}
+
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+Each step answers one question with one method: a sequence comparison, a protein-ligand prediction, a metabolic-model extension, a flux calculation, checks on the ranking, and heat-flow and life cycle assessments. Flux balance analysis gives upper limits, not predictions. **[computed]**
+</div>
+
+<div class="key" markdown="1">
+
+*Table 1. Steps of the modelling chain, the question addressed, the method and the output of each.*
+
+| Step | Question | Method | Output |
 |---|---|---|---|
 | [1 Sequence](sequence) | Which ScFAS2 residue corresponds to the *Yarrowia* chain-length residue? | EMBOSS Needle global alignment | A candidate site (V1254W) |
-| [2 FAS interaction](fas-interaction) | Does the KS pocket accommodate a C14 chain; what must not be mutated? | Boltz-2 on the KS domain with distance constraints; structural comparison | A residue shortlist and an exclusion list |
-| [3 Bridge](bridge) | Can a metabolic model represent the mutation? | Add an early-release reaction to Yeast9 | A model that can simulate the intervention |
-| [4 Metabolism](metabolism) | What can the cell reach, at what growth cost? | Flux balance analysis (FBA) on Yeast9, COBRApy | Feasibility frontier, route, knockout screen |
-| [5 Trust](trust) | Does "best" mean anything? Is learned search needed? | Six checks on the scoring function; brute force vs greedy vs RL | Which rankings may be believed |
-| [6 Process](process) | Is the product worth making? | CFD of an immersion tank; screening LCA | Use-phase and production footprint |
+| [2 FAS interaction](fas-interaction) | Does the ketoacyl synthase (KS) pocket accommodate a C14 chain; which residues must not be mutated? | Boltz-2 on the KS domain with distance constraints; structural comparison | A residue shortlist and an exclusion list |
+| [3 Bridge](bridge) | Can a metabolic model represent the mutation? | Addition of an early-release reaction to Yeast9 | A model that can simulate the intervention |
+| [4 Metabolism](metabolism) | What can the cell reach, and at what growth cost? | Flux balance analysis (FBA) on Yeast9, COBRApy | Feasibility frontier, route, knockout screen |
+| [5 Trust](trust) | Does the top-ranked design differ from the unedited strain? Is learned search required? | Six checks on the scoring function; brute force, greedy and reinforcement-learning search | Rankings that may be relied on |
+| [6 Process](process) | Is the product suitable for its intended use? | Computational fluid dynamics (CFD) of an immersion tank; screening life cycle assessment (LCA) | Use-phase and production footprint |
 
-**Why these methods.** FBA needs no kinetic parameters, so it can run on a genome-scale model; it gives an upper limit, not a prediction. Boltz-2 was used because the KS pocket of the solved ScFAS2 structure (8PRW) holds no fatty acid, so ligand placement had to be predicted. Brute force was kept as the reference search because at our scale it is exact and cheap. Existing strain-design tools (OptKnock, OptGene, OptForce, RobustKnock, cameo, MEWpy, OptFlux, StrainDesign) return designs whether or not the scoring underneath them can separate candidates; none of those we surveyed checks first.
+</div>
+
+**Rationale for the methods.** FBA[@orth2010|principles and assumptions of FBA] requires no kinetic parameters and can therefore be applied to a genome-scale model; it yields an upper limit and not a prediction. Boltz-2[@passaro2025|ligand placement] was used because the KS pocket of the solved ScFAS2 structure (PDB 8PRW)[@singh2023|8PRW] contains no fatty acid, so ligand placement had to be predicted. Brute force was retained as the reference search because it is exact and inexpensive at the present scale. Existing strain-design tools, namely OptKnock,[@burgard2003] OptGene,[@patil2005] OptForce,[@ranganathan2010] RobustKnock,[@tepper2010] cameo,[@cardoso2018] MEWpy,[@pereira2021] OptFlux[@rocha2010] and StrainDesign,[@schneider2022] return designs whether or not the underlying scoring can separate candidates; none of those surveyed by the team checks this first.
 
 ## Data and parameters {#m3}
 
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+Protein structures come from public databases, and the metabolic model is the community yeast model Yeast9. Two flux analyses were run under slightly different conditions, so their numbers differ by 6–7 %, and this has not yet been reconciled. **[pending]**
+</div>
 
 ### Structures **[literature]**
 
+The structures used are listed in Table 2.
+
+*Table 2. Protein structures used. Resolution in Å.*
+
 | PDB | Contents | Resolution | Role |
 |---|---|---|---|
-| 8PRW | ScFAS2 | 1.9 Å | Primary receptor structure. KS3 pocket holds no fatty acid |
-| 1F91 | *E. coli* KAS I with capric acid | 2.40 Å | Reference for an acyl chain in a KS pocket |
+| 8PRW | ScFAS2 | 1.9 Å | Primary receptor structure; the KS3 pocket contains no fatty acid |
+| 1F91 | *E. coli* β-ketoacyl-ACP synthase I (KAS I) with capric acid | 2.40 Å | Reference for an acyl chain in a KS pocket |
 | 2PFF | Yeast FAS | 4.00 Å | Retained as a homology template; not used in the final workflow |
-| 2VKZ | Cerulenin-inhibited ScFAS | n/a | Reference for the catalytic state (Johansson 2008) |
+| 2VKZ | Cerulenin-inhibited ScFAS | n/a | Reference for the catalytic state[@johansson2008|PDB 2VKZ] |
 
-Numbering follows UniProt P19097 (FAS2, alpha) and P07149 (FAS1, beta). KS-only models use a local offset of 1122; three model files carry an inserted `UNK` residue at local position 84 (+1 shift downstream). All residue identifiers on this site are converted to full-sequence P19097 numbering.
+Residue numbering follows UniProt P19097 (FAS2, α subunit) and P07149 (FAS1, β subunit). KS-only models use a local offset of 1122; three model files carry an inserted `UNK` residue at local position 84 (a shift of +1 downstream). All residue identifiers on this site are converted to full-sequence P19097 numbering.
 
 ### Metabolic model and run conditions **[computed]**
 
-Two FBA analyses exist. They use different conditions, so their numbers differ by design. We show conditions with every number.
+Two FBA analyses exist. They use different conditions, so their numbers differ by design; the conditions are stated with every number (Table 3). Both used GLPK as solver.
 
-| | Analysis A (pre-flight / repo) | Analysis B (FBA report) |
+<div class="key" markdown="1">
+
+*Table 3. Conditions of the two FBA analyses.*
+
+| | Analysis A (pre-flight / repository) | Analysis B (FBA report) |
 |---|---|---|
 | Model | Yeast9 (`data/models/yeast-GEM.xml`) | Yeast-GEM v9.1.1: 4,105 reactions, 2,748 metabolites, 1,143 genes |
-| Glucose uptake | 1.0 mmol/gDW/h | 1.1 mmol/gDW/h |
-| Non-growth maintenance | 0.7 mmol ATP/gDW/h | 0.7 mmol ATP/gDW/h |
+| Glucose uptake | 1.0 mmol gDW⁻¹ h⁻¹ | 1.1 mmol gDW⁻¹ h⁻¹ |
+| Non-growth-associated maintenance (NGAM) | 0.7 mmol ATP gDW⁻¹ h⁻¹ | 0.7 mmol ATP gDW⁻¹ h⁻¹ |
 | Strain | Wild type | BY4742 (HIS3, LEU2, LYS2 deleted; His, Leu, Lys supplied) |
 | Wild-type growth | 0.0811 h⁻¹ | 0.09768 h⁻¹ |
 | Fatty-acid-CoA ligases | Forward-only in the robustness check | Forward-only (primary); original bounds as sensitivity |
 | Solver | GLPK | GLPK |
 
+</div>
+
 <div class="alert alert-secondary" role="alert" markdown="1">
-**[pending]** Reconcile the two analyses: confirm the exact model version in each (a team comment names v9.0.2 for one run), and the reason for the growth-rate difference. Glucose uptake differs (1.0 vs 1.1), which probably explains most of it.
+**[pending]** The two analyses remain to be reconciled: the exact model version in each (a team comment names v9.0.2 for one run) and the reason for the growth-rate difference must be confirmed. Glucose uptake differs (1.0 against 1.1 mmol gDW⁻¹ h⁻¹), which probably accounts for most of the difference.
 </div>
 
 ### Literature inputs **[literature]**
 
-- Chain-length control by the KS domain and the *Yarrowia* I1220W result: Rigouin et al. 2017 (C14 raised to 11.6% of total lipid in stationary phase).
-- Catalytic and gating residues of ScFAS: Johansson et al. 2008 (PDB 2VKZ).
-- Background fatty-acid profile of *S. cerevisiae*: Wei, Siewers, Nielsen 2017 (C16:0 13.7, C16:1 50.0, C18:0 3.5, C18:1 30.0 % of total fatty acids).
-- Assay noise: GC-MS composition replicate variation of 1–5%, taken from our project write-up, not yet checked against the literature.
+- Chain-length control by the KS domain and the *Yarrowia* I1220W result: Rigouin et al. (2017), in which C14 reached 11.6 % of total fatty acids.[@rigouin2017|I1220W result (abstract only)]
+- Catalytic and gating residues of ScFAS: Johansson et al. (2008), PDB 2VKZ.[@johansson2008|catalytic and gating residues]
+- Background fatty-acid profile of *S. cerevisiae* (CEN.PK113-7D, nitrogen-limited medium, harvested after 120 h; per cent of total fatty acids, n = 2): C16:0 13.7, C16:1 50.0, C18:0 3.5, C18:1 30.0.[@wei2017|Table 3]
+- Assay noise: replicate variation of GC-MS fatty-acid composition of 1–5 %, taken from the project write-up and not yet checked against the literature.
 
-## Assumptions and why {#m4}
+## Assumptions and their basis {#m4}
 
-| # | Assumption | Why | If wrong | Status |
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+Eleven assumptions underlie the results. The most important, A1, is that the mutation works in baker's yeast as it does in *Yarrowia*; if it does not, every downstream number is moot. Published work found by the team reports shorter chains (C6 and C8) instead. **[hypothesis]**
+</div>
+
+<div class="key" markdown="1">
+
+*Table 4. Assumptions, their basis, consequence if incorrect, and status.*
+
+| # | Assumption | Basis | If incorrect | Status |
 |---|---|---|---|---|
-| A1 | A FAS2 point mutation (V1254W) can release C14 in *S. cerevisiae* | By homology to *Yarrowia* I1220W. *S. cerevisiae* FAS point-mutation literature we found reports C6/C8 shifts (Gajewski 2017), not C14 | Every downstream number is moot | **[hypothesis]** |
-| A2 | Only the KS domain needs to be modelled | Full alpha subunit (1,887 aa) runs out of GPU memory; the acyl tunnel and residues of interest lie inside KS | Beta-subunit and chamber context are ignored | Reviewed by the team; not tested |
-| A3 | Free myristic acid stands in for the covalent acyl-enzyme intermediate | Same approach as Rigouin 2017 and Olsen 2001 | Geometry differs near the catalytic cysteine | **[literature]** precedent |
+| A1 | A FAS2 point mutation (V1254W) can release C14 in *S. cerevisiae* | Homology to *Yarrowia* I1220W. The *S. cerevisiae* FAS point-mutation literature found by the team reports C6/C8 shifts[@gajewski2017|S. cerevisiae FAS mutants with C6/C8 shifts] and not C14 | Every downstream number is moot | **[hypothesis]** |
+| A2 | Only the KS domain needs to be modelled | The full α subunit (1,887 aa) exceeded GPU memory; the acyl tunnel and residues of interest lie within KS | β-subunit and chamber context are ignored | Reviewed by the team; not tested |
+| A3 | Free myristic acid stands in for the covalent acyl-enzyme intermediate | A structure of *E. coli* KAS I with covalently bound C10 and C12 acyl groups (catalytic Cys-Ser mutant) provides a reference for acyl-chain occupancy of a KS pocket[@olsen2001|acyl-bound KAS I structures] | Geometry differs near the catalytic cysteine | **[literature]** precedent (partial) |
 | A4 | Distance constraints are needed to place the ligand | The first unconstrained run did not place the chain near the pocket, but a rerun with five samples did | Constraint choice biases the pose | **[computed]** |
-| A5 | FBA: steady state, no kinetics, no regulation | Standard FBA assumptions | Results are upper limits, not predictions | **[literature]** |
-| A6 | Fatty-acid-CoA ligases forward-only in the primary scenario | The reaction is ATP-driven and strongly one-way; reversal gave a thermodynamically questionable route | Some knockouts look viable only via reverse flux | **[computed]** (sensitivity shown) |
-| A7 | Myristate export is a reaction without a gene | How Yeast9 represents it | Secretion mechanism is not established | **[literature]** model property |
+| A5 | FBA: steady state, no kinetics, no regulation | Standard FBA assumptions[@orth2010] | Results are upper limits, not predictions | **[literature]** |
+| A6 | Fatty-acid-CoA ligases are forward-only in the primary scenario | The reaction is ATP-driven and strongly unidirectional; reversal gave a thermodynamically questionable route | Some knockouts appear viable only through reverse flux | **[computed]** (sensitivity shown) |
+| A7 | Myristate export is a reaction without a gene | Representation in Yeast9 | The secretion mechanism is not established | **[literature]** model property |
 | A8 | The model outputs free myristate, not methyl myristate | Esterification is not in the model | Titre of the coolant is not predicted | By construction |
-| A9 | Assay resolution is GC-MS replicate noise of 1–5% | Project write-up | Thresholds for "separable" shift | Not checked against literature |
-| A10 | Search benchmark runs on a synthetic landscape | Our real landscape turned out to be flat, so comparing searches on it measures nothing | Ranking may not transfer | **[computed]** |
-| A11 | Tank CFD uses constant fluid properties | Simplification | Temperature-dependent viscosity is missed | See [Life Cycle Assessment](life-cycle-assessment) |
+| A9 | Assay resolution equals GC-MS replicate noise of 1–5 % | Project write-up | Thresholds for separability shift | Not checked against the literature |
+| A10 | The search benchmark runs on a synthetic landscape | The real landscape was flat, so a comparison of searches on it would measure nothing | The ranking of methods may not transfer | **[computed]** |
+| A11 | Tank CFD uses constant fluid properties | Simplification | Temperature-dependent viscosity is not captured | See [Life Cycle Assessment](life-cycle-assessment) |
 
-## How the results affected our design {#m6}
+</div>
 
-1. **We dropped the plan to knock down degradation to preserve C14:0.** The model shows degradation is the only C14:0 source without early release, and deleting *POX1* gives zero. The rule against sending degradation knockdowns to the wet lab in a first iteration now has a mechanistic reason.
-2. **We added a FAS early-release reaction as a documented model modification** and measured its effect: +2.6%, NADPH-limited. This tells us where the model says the limit lies (cofactors, not chain supply). Acting on it is **[pending]**.
-3. **We excluded M1251, C1305, F1646, G1250 and K1413–K1423 from mutagenesis** and kept V1254W as the lead candidate, with M1260 secondary.
-4. **We did not send a ranked knockout list to the wet lab**, because checks D1 and D2 failed on our own scoring. The tool refused to issue proposals, and we followed it.
-5. **We recommend brute-force enumeration** at our scale, and a trivial baseline before any learned search.
-6. **Coolant choice** between methyl and isopropyl myristate is **[pending]**; it does not change the upstream strain-design question, since both are esters of the same C14 acid.
+## Effect of the results on the design {#m6}
+
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+The models changed the plan in six ways. A plan to reduce fat breakdown was dropped, some residues were ruled out, and no ranked list of gene deletions was sent to the laboratory. Choosing between two candidate coolants is still open. **[computed]**
+</div>
+
+1. **The plan to knock down degradation in order to preserve C14:0 was dropped.** The model indicates that degradation is the only C14:0 source in the absence of early release, and deletion of *POX1* gave zero. The rule against sending degradation knockdowns to the wet lab in a first iteration therefore has a mechanistic basis.
+2. **An FAS early-release reaction was added as a documented model modification**, and its effect was measured: +2.6 %, NADPH-limited. This indicates where the model places the limit (cofactors, not chain supply). Acting on this result is **[pending]**.
+3. **M1251, C1305, F1646, G1250 and K1413–K1423 were excluded from mutagenesis**; V1254W was retained as the lead candidate, with M1260 secondary.
+4. **No ranked knockout list was passed to the wet lab**, because checks D1 and D2 failed on the team's own scoring. The tool withheld proposals, and this outcome was accepted.
+5. **Brute-force enumeration is recommended** at the present scale, together with a trivial baseline before any learned search.
+6. **The choice of coolant** between methyl and isopropyl myristate is **[pending]**; it does not alter the upstream strain-design question, since both are esters of the same C14 acid.
 
 ## Limitations and validation status {#m7}
+
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+There are no laboratory data of any kind, so every number is a statement about a model. Several analyses are unfinished, and the life cycle assessment has not had an independent review. **[pending]**
+</div>
+
+<div class="key" markdown="1">
+
+*Table 5. Limitations, their effect on the conclusions and their status.*
 
 | Limitation | Effect on conclusions | Status |
 |---|---|---|
 | No wet-lab data of any kind | Every number is a statement about a model | Not available to the team |
-| V1254W route to C14 in *S. cerevisiae* is an assumption | All downstream numbers are conditional | **[hypothesis]** |
-| M1251 gate explanation untested | Basis for excluding M1251 is a hypothesis; a literature report of *S. cerevisiae* strains mutated at M1251 may bear on it | **[pending]** check against the paper |
-| No MD or relaxed ligand-bound pocket | Pocket geometry is rigid-receptor | Large-scale; a short minimisation is feasible |
-| No formal proximity cutoff; no consensus across models | Candidate set rests on literature precedent plus inspection | **[pending]** |
-| Conservation/phylogenetic analysis | Further mutation sites are blocked on it | **[pending]** |
-| Growth penalty not computed | Cost of each intervention is not quantified | **[pending]** |
-| Knockout screen run without early-release reaction | Re-run needed | **[pending]** |
-| Two FBA analyses use different conditions | Numbers differ by 6–7% | **[pending]** reconciliation |
-| FBA is an upper bound, not a probability | We report no probability of success anywhere | By construction |
-| Free myristate modelled, not methyl myristate | Coolant titre not predicted | By construction |
-| RL agent is a simple linear Q-learner; benchmark on a synthetic landscape | Shows ours lost, not that RL cannot work | Stated |
+| The V1254W route to C14 in *S. cerevisiae* is an assumption | All downstream numbers are conditional | **[hypothesis]** |
+| The M1251 gate explanation is untested | The basis for excluding M1251 is a hypothesis; *S. cerevisiae* strains with G1250S and M1251W substitutions have been reported[@gajewski2017|G1250S-M1251W strain] and may bear on it | **[pending]** assessment against the paper |
+| No molecular dynamics or relaxed ligand-bound pocket | Pocket geometry is rigid-receptor | Large-scale; a short minimisation is feasible |
+| No formal proximity cut-off; no consensus across models | The candidate set rests on literature precedent plus inspection | **[pending]** |
+| Conservation and phylogenetic analysis | Further mutation sites are blocked on it | **[pending]** |
+| Growth penalty not computed | The cost of each intervention is not quantified | **[pending]** |
+| Knockout screen run without the early-release reaction | Repetition required | **[pending]** |
+| Two FBA analyses use different conditions | Numbers differ by 6–7 % | **[pending]** reconciliation |
+| FBA yields an upper bound, not a probability | No probability of success is reported anywhere | By construction |
+| Free myristate modelled, not methyl myristate | Coolant titre is not predicted | By construction |
+| The RL agent is a simple linear Q-learner; benchmark on a synthetic landscape | Shows that this agent was outperformed, not that RL cannot work | Stated |
 | LCA not critically reviewed; placeholders remain | Not for public comparative claims | See Life Cycle Assessment |
 
-**Validation we can still do without a wet lab (proposed, not yet planned):** reproduce known literature outcomes in the modified model (for example the *Yarrowia* C14 shift, or the *S. cerevisiae* C6/C8 shifts) and report how closely it matches; finish the positive and negative controls for the structural step; report per-residue confidence for the final models.
+</div>
+
+**Validation that does not require a wet lab (proposed, not yet planned):** reproduction of known literature outcomes in the modified model (for example the *Yarrowia* C14 shift or the *S. cerevisiae* C6/C8 shifts) with a report of the agreement; completion of positive and negative controls for the structural step; and reporting of per-residue confidence for the final models.
 
 ## Reproducibility {#m8}
 
-Code: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a> (MIT).
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+The checking tool is open source (MIT licence) and two example scripts reproduce its main outputs. The expected output of the diagnostics script is a refusal to issue proposals, which is the demonstration and not a fault. **[computed]**
+</div>
+
+Code: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a> (MIT licence).
 
 ```
 git clone <repository>
@@ -119,21 +188,4 @@ python3 examples/run_feasibility.py     # prints: Wild-type growth: 0.081100 /h 
 python3 examples/run_diagnostics.py     # prints: VERDICT: NOT USABLE, *** NO PROPOSALS ISSUED ***
 ```
 
-Python 3.10 or newer; GLPK ships with COBRApy. The Yeast-GEM model (about 11 MB) is downloaded separately from SysBioChalmers/yeast-GEM. The expected output of the diagnostics script is the demonstration, not a bug.
-
-## References {#m9}
-
-1. Rigouin C, et al. (2017). Production of medium chain fatty acids by *Yarrowia lipolytica*: combining molecular design and TALEN to engineer the fatty acid synthase. *ACS Synth Biol* 6:1870–1879.
-2. Johansson P, et al. (2008). Inhibition of the fungal fatty acid synthase type I multienzyme complex. *PNAS* 105:12803. PDB 2VKZ.
-3. Olsen JG, et al. (2001). Structures of β-ketoacyl-ACP synthase I complexed with fatty acids elucidate its catalytic machinery. *Structure* 9(3):233–243.
-4. Zhang C, et al. (2024). Yeast9: a consensus genome-scale metabolic model for *S. cerevisiae* curated by the community. *Mol Syst Biol* 20:1134–1150.
-5. Orth JD, Thiele I, Palsson BØ (2010). What is flux balance analysis? *Nat Biotechnol* 28:245–248.
-6. Ebrahim A, et al. (2013). COBRApy: constraints-based reconstruction and analysis for Python. *BMC Syst Biol* 7:74.
-7. Wei Y, Siewers V, Nielsen J (2017). *Appl Microbiol Biotechnol*. doi:10.1007/s00253-017-8126-7.
-8. Madeira F, et al. (2022). Search and sequence analysis tools services from EMBL-EBI in 2022. *Nucleic Acids Res* 50:W276–W279.
-9. Needleman SB, Wunsch CD (1970). A general method applicable to the search for similarities in the amino acid sequence of two proteins. *J Mol Biol* 48:443–453.
-10. Das I, Dennis JE (1997). Weighted-sum drawbacks for Pareto set generation. doi:10.1007/BF01197559.
-11. Schuetz R, Kuepfer L, Sauer U (2007). *Mol Syst Biol*. doi:10.1038/msb4100162.
-12. Lieven C, et al. (2020). memote. *Nat Biotechnol*. doi:10.1038/s41587-020-0446-y.
-13. Boltz-2 (Passaro et al. 2025). Boltz-1: Wohlwend M, et al. (2024), bioRxiv.
-14. Gajewski J, et al. (2017). *S. cerevisiae* fatty acid synthase engineering (full citation to be added).
+Python 3.10 or newer is required; GLPK is supplied with COBRApy.[@ebrahim2013|COBRApy] The Yeast-GEM model (about 11 MB) is downloaded separately from SysBioChalmers/yeast-GEM.[@zhang2024|Yeast9] The expected output of the diagnostics script is the demonstration and not a defect.

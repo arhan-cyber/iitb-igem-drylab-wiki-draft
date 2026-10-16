@@ -47,7 +47,7 @@ The pre-flight tool (Software page) applies six automated checks to a scoring fu
 
 </div>
 
-The verdict was NOT USABLE: the tool withheld strain proposals because checks D1, D2 and D3 failed, and no ranked knockout list was therefore passed to experimental work. Four of the six checks are not new: D3–D6 automate established methods, and D4 is already implemented in memote.[@lieven2020|memote as an existing model-testing tool] Automated versions of D1 and D2 were not found in any tool surveyed by the team (Figure 1).
+The verdict was NOT USABLE: the tool withheld strain proposals because checks D1, D2 and D3 failed, and no ranked knockout list was therefore passed to experimental work. Four of the six checks are not new: D3–D6 automate established methods, and D4 is already implemented in memote.[@lieven2020|memote, the model-testing tool; the overlap with D4 is a team statement that was not checked against the memote tests] Automated versions of D1 and D2 were not found in any tool surveyed by the team (Figure 1).
 
 <figure class="figure my-4">
   <img src="/static/figures/preflight_gate.png" class="figure-img img-fluid" alt="Diagram contrasting search, which ranks candidates, with pre-flight, which checks the scoring function. Pre-flight sits between the model and the search; on pass the search runs and produces a proposal sheet, on fail no proposals are issued with the reason.">

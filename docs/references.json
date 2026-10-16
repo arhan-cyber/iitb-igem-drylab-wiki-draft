@@ -170,5 +170,93 @@
   "title": "Boltz-1: democratizing biomolecular interaction modeling",
   "journal": "bioRxiv (preprint)",
   "doi": "10.1101/2024.11.19.624167"
+ },
+ {
+  "key": "burgard2003",
+  "type": "paper",
+  "authors": "Burgard A, Pharkya P, Maranas C",
+  "year": 2003,
+  "title": "OptKnock: a bilevel programming framework for identifying gene knockout strategies for microbial strain optimization",
+  "journal": "Biotechnology and Bioengineering",
+  "volume": 84,
+  "pages": "647-657",
+  "doi": "10.1002/bit.10803"
+ },
+ {
+  "key": "patil2005",
+  "type": "paper",
+  "authors": "Patil K, Rocha I, Förster J, Nielsen J",
+  "year": 2005,
+  "title": "Evolutionary programming as a platform for in silico metabolic engineering",
+  "journal": "BMC Bioinformatics",
+  "volume": 6,
+  "pages": "308",
+  "doi": "10.1186/1471-2105-6-308"
+ },
+ {
+  "key": "ranganathan2010",
+  "type": "paper",
+  "authors": "Ranganathan S, Suthers P, Maranas C",
+  "year": 2010,
+  "title": "OptForce: an optimization procedure for identifying all genetic manipulations leading to targeted overproductions",
+  "journal": "PLoS Computational Biology",
+  "volume": 6,
+  "pages": "e1000744",
+  "doi": "10.1371/journal.pcbi.1000744"
+ },
+ {
+  "key": "tepper2010",
+  "type": "paper",
+  "authors": "Tepper N, Shlomi T",
+  "year": 2010,
+  "title": "Predicting metabolic engineering knockout strategies for chemical production: accounting for competing pathways",
+  "journal": "Bioinformatics",
+  "volume": 26,
+  "pages": "536-543",
+  "doi": "10.1093/bioinformatics/btp704"
+ },
+ {
+  "key": "cardoso2018",
+  "type": "software",
+  "authors": "Cardoso J, Jensen K, Lieven C, Lærke Hansen A, Galkina S, Beber M, Özdemir E, Herrgård M, Redestig H, Sonnenschein N",
+  "year": 2018,
+  "title": "Cameo: a Python library for computer aided metabolic engineering and optimization of cell factories",
+  "journal": "ACS Synthetic Biology",
+  "volume": 7,
+  "pages": "1163-1166",
+  "doi": "10.1021/acssynbio.7b00423"
+ },
+ {
+  "key": "pereira2021",
+  "type": "software",
+  "authors": "Pereira V, Cruz F, Rocha M",
+  "year": 2021,
+  "title": "MEWpy: a computational strain optimization workbench in Python",
+  "journal": "Bioinformatics",
+  "volume": 37,
+  "pages": "2494-2496",
+  "doi": "10.1093/bioinformatics/btab013"
+ },
+ {
+  "key": "rocha2010",
+  "type": "software",
+  "authors": "Rocha I, Maia P, Evangelista P, Vilaça P, Soares S, Pinto J, Nielsen J, Patil K, Ferreira E, Rocha M",
+  "year": 2010,
+  "title": "OptFlux: an open-source software platform for in silico metabolic engineering",
+  "journal": "BMC Systems Biology",
+  "volume": 4,
+  "pages": "45",
+  "doi": "10.1186/1752-0509-4-45"
+ },
+ {
+  "key": "schneider2022",
+  "type": "software",
+  "authors": "Schneider P, Bekiaris P, von Kamp A, Klamt S",
+  "year": 2022,
+  "title": "StrainDesign: a comprehensive Python package for computational design of metabolic networks",
+  "journal": "Bioinformatics",
+  "volume": 38,
+  "pages": "4981-4983",
+  "doi": "10.1093/bioinformatics/btac632"
  }
 ]
