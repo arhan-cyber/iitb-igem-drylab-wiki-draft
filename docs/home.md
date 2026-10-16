@@ -1,47 +1,74 @@
 
 <div class="alert alert-warning" role="alert" markdown="1">
-**Draft status.** This site presents our modelling results as they currently stand. All results are statements about models. **None has been validated against wet-lab data.** Where something is unfinished, we say so on the page.
+**Draft status.** This site presents the modelling results as they currently stand. All results are statements about models. **None has been validated against wet-lab data.** Unfinished items are identified on the relevant pages.
 </div>
 
-## What our modelling did
+**Summary.** The IIT Bombay iGEM 2026 dry-lab team modelled the engineering of *Saccharomyces cerevisiae* to produce a C14:0-rich fatty-acid product (myristic acid) that can be esterified to methyl myristate, a bio-based immersion coolant for data centres. Six linked models were built, from a single residue of fatty acid synthase to a coolant life cycle assessment. In the metabolic model, C14:0 was formed only by shortening C16:0, no gene knockout set exceeded the wild type, and an early-release reaction increased C14 export by 2.6 %. The team's scoring function did not satisfy its own checks, so no strain proposals were issued. The central mutation (V1254W) is an assumption by homology and is untested in *S. cerevisiae*.
 
-Our team is engineering *Saccharomyces cerevisiae* to make a C14:0-rich fatty-acid product (myristic acid) that can be turned into methyl myristate, a bio-based immersion coolant for data centres. We asked one question at three scales and then asked whether the answer was worth trusting and worth making:
+## Overview of the modelling work {#what-our-modelling-did}
 
-1. **Sequence.** Which residue in the yeast fatty acid synthase (FAS) controls chain length?
-2. **FAS interaction.** Does the enzyme's binding pocket hold a C14 chain, and which residues must we leave alone?
-3. **Bridge.** Can a genome-scale metabolic model represent that mutation at all?
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+One question was asked at six scales, from a single amino acid to a coolant's life cycle, and each step passed a result to the next. The key assumption, that one mutation can make yeast release the 14-carbon fatty acid early, is untested. **[hypothesis]**
+</div>
+
+The modelling addressed one question at three scales and then examined whether the answer was reliable and worth acting upon (Figure 1):
+
+1. **Sequence.** Which residue of yeast fatty acid synthase (FAS) controls chain length?
+2. **FAS interaction.** Does the binding pocket of the enzyme accommodate a C14 chain, and which residues should remain unaltered?
+3. **Bridge.** Can a genome-scale metabolic model represent that mutation?
 4. **Metabolism.** What can the whole cell reach, at what cost to growth, and by which route?
-5. **Trust.** Does our scoring of candidate designs measure anything, and is a learned search better than a simple one?
-6. **Process.** Is the product worth making, and how does it compare with other coolants?
+5. **Trust.** Does the scoring of candidate designs measure anything, and is a learned search better than a simple one?
+6. **Process.** Is the product suitable for its intended use, and how does it compare with other coolants?
 
-<figure class="figure my-4">
+<figure class="figure my-4 key">
   <img src="/static/figures/overview_story.png" class="figure-img img-fluid" alt="Six boxes in a row, left to right: Sequence, FAS interaction, Bridge, Metabolism, Trust, Process. Each box states the question, the key result and the status.">
-  <figcaption class="figure-caption">The six steps and what each hands to the next. Key assumption behind steps 1 to 3: a FAS2 point mutation can release C14 in <em>S. cerevisiae</em>. This is an assumption, not an established result.</figcaption>
+  <figcaption class="figure-caption"><strong>Figure 1.</strong> The six steps and the result each passes to the next. The key assumption behind steps 1 to 3 is that a FAS2 point mutation can release C14 in <em>S. cerevisiae</em>; this is an assumption and not an established result. Model-implied; not validated against wet-lab data.</figcaption>
 </figure>
 
-## Where to read what
+## Guide to the pages {#where-to-read-what}
 
-| If you want… | Go to |
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+The Model pages give methods and numbers, Results gives the headline findings, Engineering the design cycle, Software the tool for other teams, and Life Cycle Assessment the coolant study.
+</div>
+
+*Table 1. Pages of this site and their content.*
+
+| Topic | Page |
 |---|---|
 | Methods, assumptions, data, parameters, limits | [Model](model), with one page per step |
-| The headline findings and what they changed | [Results](results) |
-| The design cycle we went through | [Engineering](engineering) |
-| The tool other teams can run on their own models | [Software](software) |
-| What we offer to the community | [Contribution](contribution) |
+| Headline findings and the changes they prompted | [Results](results) |
+| The design cycle | [Engineering](engineering) |
+| The tool that other teams can run on their own models | [Software](software) |
+| What is offered to the community | [Contribution](contribution) |
 | The coolant life cycle assessment | [Life Cycle Assessment](life-cycle-assessment) |
 
-## How to read the status labels
+## Status labels {#how-to-read-the-status-labels}
+
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
+
+Every claim is tagged as computed, from the literature, a hypothesis or pending, so that results can be told apart from ideas.
+</div>
 
 Every claim on this site carries one of four labels:
 
-- **[computed]** we ran it and the numbers come from our own code or documents.
-- **[literature]** taken from a published source, cited.
-- **[hypothesis]** a reasoned explanation we have not yet tested.
-- **[pending]** planned or in progress; no result yet.
+- **[computed]** produced in this study; the numbers originate from the team's own code or documents.
+- **[literature]** taken from a published source, which is cited.
+- **[hypothesis]** a reasoned explanation that has not been tested.
+- **[pending]** planned or in progress; no result is available.
 
-## Three things to know first
+## Key points {#three-things-to-know-first}
 
-1. **The headline result is mostly negative, and useful.** In our metabolic model no gene knockout improves C14:0 production over wild type, and our own scoring setup failed its checks. We report both.
-2. **The mutation route is an assumption.** That a FAS2 point mutation can release C14 in *S. cerevisiae* is supported by a *Yarrowia lipolytica* result, not by *S. cerevisiae* data. All downstream numbers are conditional on it.
-3. **The coolant case is not settled.** Our screening LCA favours methyl myristate in use under some assumptions and not others, and a separate coolant-selection analysis recommends isopropyl myristate on operability grounds. See [Life Cycle Assessment](life-cycle-assessment).
+<div class="brief" markdown="1">
+<div class="brief-h">In brief</div>
 
+The main outcome is largely negative: no gene deletion helped and the team's own ranking failed its checks. The key mutation is an assumption, and the coolant case is not settled. **[computed]**
+</div>
+
+1. **The principal result is predominantly negative.** In the metabolic model, no gene knockout set exceeded wild-type C14:0 production, and the scoring setup of the team did not satisfy its checks. Both outcomes are reported.
+2. **The mutation route is an assumption.** The proposal that a FAS2 point mutation can release C14 in *S. cerevisiae* rests on a *Yarrowia lipolytica* result[@rigouin2017|I1220W in Y. lipolytica (abstract)] and not on *S. cerevisiae* data. All downstream numbers are conditional on it.
+3. **The coolant case is not settled.** The screening life cycle assessment favours methyl myristate in use under some assumptions and not others, and a separate coolant-selection analysis recommends isopropyl myristate on operability grounds. See [Life Cycle Assessment](life-cycle-assessment).
