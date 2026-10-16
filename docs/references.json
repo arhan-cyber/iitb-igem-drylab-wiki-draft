@@ -1,0 +1,174 @@
+[
+ {
+  "key": "rigouin2017",
+  "type": "paper",
+  "authors": "Rigouin C, Gueroult M, Croux C, Dubois G, Borsenberger V, Barbe S, Marty A, Daboussi F, André I, Bordes F",
+  "year": 2017,
+  "title": "Production of medium chain fatty acids by Yarrowia lipolytica: combining molecular design and TALEN to engineer the fatty acid synthase",
+  "journal": "ACS Synthetic Biology",
+  "volume": 6,
+  "pages": "1870-1879",
+  "doi": "10.1021/acssynbio.7b00034"
+ },
+ {
+  "key": "johansson2008",
+  "type": "paper",
+  "authors": "Johansson P, Wiltschi B, Kumari P, Kessler B, Vonrhein C, Vonck J, Oesterhelt D, Grininger M",
+  "year": 2008,
+  "title": "Inhibition of the fungal fatty acid synthase type I multienzyme complex",
+  "journal": "Proceedings of the National Academy of Sciences USA",
+  "volume": 105,
+  "pages": "12803-12808",
+  "doi": "10.1073/pnas.0805827105"
+ },
+ {
+  "key": "olsen2001",
+  "type": "paper",
+  "authors": "Olsen JG, Kadziola A, von Wettstein-Knowles P, Siggaard-Andersen M, Larsen S",
+  "year": 2001,
+  "title": "Structures of β-ketoacyl-acyl carrier protein synthase I complexed with fatty acids elucidate its catalytic machinery",
+  "journal": "Structure",
+  "volume": 9,
+  "pages": "233-243",
+  "doi": "10.1016/S0969-2126(01)00583-4"
+ },
+ {
+  "key": "singh2023",
+  "type": "paper",
+  "authors": "Singh K, Bunzel G, Graf B, Yip KM, Neumann-Schaal M, Stark H, Chari A",
+  "year": 2023,
+  "title": "Reconstruction of a fatty acid synthesis cycle from acyl carrier protein and cofactor structural snapshots",
+  "journal": "Cell",
+  "volume": 186,
+  "pages": "5054-5067.e16",
+  "doi": "10.1016/j.cell.2023.10.009",
+  "note": "Cryo-EM structure PDB 8PRW."
+ },
+ {
+  "key": "gajewski2017",
+  "type": "paper",
+  "authors": "Gajewski J, Pavlovic R, Fischer M, Boles E, Grininger M",
+  "year": 2017,
+  "title": "Engineering fungal de novo fatty acid synthesis for short chain fatty acid production",
+  "journal": "Nature Communications",
+  "volume": 8,
+  "pages": "14650",
+  "doi": "10.1038/ncomms14650"
+ },
+ {
+  "key": "wei2017",
+  "type": "paper",
+  "authors": "Wei Y, Siewers V, Nielsen J",
+  "year": 2017,
+  "title": "Cocoa butter-like lipid production ability of non-oleaginous and oleaginous yeasts under nitrogen-limited culture conditions",
+  "journal": "Applied Microbiology and Biotechnology",
+  "volume": 101,
+  "pages": "3577-3585",
+  "doi": "10.1007/s00253-017-8126-7"
+ },
+ {
+  "key": "zhang2024",
+  "type": "paper",
+  "authors": "Zhang C, Sánchez BJ, Li F, Eiden CWQ, Scott WT, Liebal UW, Blank LM, Mengers HG, Anton M, Rangel AT, Mendoza SN, Zhang L, Nielsen J, Lu H, Kerkhoven EJ",
+  "year": 2024,
+  "title": "Yeast9: a consensus genome-scale metabolic model for S. cerevisiae curated by the community",
+  "journal": "Molecular Systems Biology",
+  "volume": 20,
+  "pages": "1134-1150",
+  "doi": "10.1038/s44320-024-00060-7"
+ },
+ {
+  "key": "orth2010",
+  "type": "paper",
+  "authors": "Orth JD, Thiele I, Palsson BØ",
+  "year": 2010,
+  "title": "What is flux balance analysis?",
+  "journal": "Nature Biotechnology",
+  "volume": 28,
+  "pages": "245-248",
+  "doi": "10.1038/nbt.1614"
+ },
+ {
+  "key": "ebrahim2013",
+  "type": "software",
+  "authors": "Ebrahim A, Lerman JA, Palsson BO, Hyduke DR",
+  "year": 2013,
+  "title": "COBRApy: COnstraints-Based Reconstruction and Analysis for Python",
+  "journal": "BMC Systems Biology",
+  "volume": 7,
+  "pages": "74",
+  "doi": "10.1186/1752-0509-7-74"
+ },
+ {
+  "key": "madeira2022",
+  "type": "software",
+  "authors": "Madeira F, Pearce M, Tivey ARN, Basutkar P, Lee J, Edbali O, Madhusoodanan N, Kolesnikov A, Lopez R",
+  "year": 2022,
+  "title": "Search and sequence analysis tools services from EMBL-EBI in 2022",
+  "journal": "Nucleic Acids Research",
+  "volume": 50,
+  "pages": "W276-W279",
+  "doi": "10.1093/nar/gkac240"
+ },
+ {
+  "key": "needleman1970",
+  "type": "paper",
+  "authors": "Needleman SB, Wunsch CD",
+  "year": 1970,
+  "title": "A general method applicable to the search for similarities in the amino acid sequence of two proteins",
+  "journal": "Journal of Molecular Biology",
+  "volume": 48,
+  "pages": "443-453",
+  "doi": "10.1016/0022-2836(70)90057-4"
+ },
+ {
+  "key": "das1997",
+  "type": "paper",
+  "authors": "Das I, Dennis JE",
+  "year": 1997,
+  "title": "A closer look at drawbacks of minimizing weighted sums of objectives for Pareto set generation in multicriteria optimization problems",
+  "journal": "Structural Optimization",
+  "volume": 14,
+  "pages": "63-69",
+  "doi": "10.1007/BF01197559"
+ },
+ {
+  "key": "schuetz2007",
+  "type": "paper",
+  "authors": "Schuetz R, Kuepfer L, Sauer U",
+  "year": 2007,
+  "title": "Systematic evaluation of objective functions for predicting intracellular fluxes in Escherichia coli",
+  "journal": "Molecular Systems Biology",
+  "volume": 3,
+  "doi": "10.1038/msb4100162"
+ },
+ {
+  "key": "lieven2020",
+  "type": "paper",
+  "authors": "Lieven C, Beber ME, Olivier BG, et al.",
+  "year": 2020,
+  "title": "MEMOTE for standardized genome-scale metabolic model testing",
+  "journal": "Nature Biotechnology",
+  "volume": 38,
+  "pages": "272-276",
+  "doi": "10.1038/s41587-020-0446-y"
+ },
+ {
+  "key": "passaro2025",
+  "type": "paper",
+  "authors": "Passaro S, Corso G, Wohlwend J, et al.",
+  "year": 2025,
+  "title": "Boltz-2: towards accurate and efficient binding affinity prediction",
+  "journal": "bioRxiv (preprint)",
+  "doi": "10.1101/2025.06.14.659707"
+ },
+ {
+  "key": "wohlwend2024",
+  "type": "paper",
+  "authors": "Wohlwend J, Corso G, Passaro S, et al.",
+  "year": 2024,
+  "title": "Boltz-1: democratizing biomolecular interaction modeling",
+  "journal": "bioRxiv (preprint)",
+  "doi": "10.1101/2024.11.19.624167"
+ }
+]

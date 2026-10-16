@@ -63,3 +63,185 @@ footer a:hover {
   color: white;
   text-decoration: underline;
 }
+
+/* ================= reading mode (Brief / Full) ================= */
+/* Default (and no-JavaScript) state: full text visible, brief boxes hidden. */
+.brief {
+  display: none;
+  background: #f4f8f5;
+  border: 1px solid #cfdcd3;
+  border-left: 0.25rem solid #2f7d4f;
+  border-radius: 0.25rem;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.5rem;
+}
+.brief-h {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1f5e3a;
+  margin-bottom: 0.4rem;
+}
+.brief p:last-child {
+  margin-bottom: 0;
+}
+html.mode-brief .brief {
+  display: block;
+}
+/* Brief mode: show the brief box, the section heading and anything marked key. */
+html.mode-brief details.acc:not(.refs) > .acc-body > * {
+  display: none;
+}
+html.mode-brief details.acc:not(.refs) > .acc-body > .brief,
+html.mode-brief details.acc:not(.refs) > .acc-body > .key {
+  display: block;
+}
+
+/* sections */
+details.acc {
+  border-top: 1px solid #dee2e6;
+  padding: 0.25rem 0 0.5rem;
+  margin-top: 1rem;
+}
+details.acc > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+details.acc > summary::-webkit-details-marker {
+  display: none;
+}
+details.acc > summary::before {
+  content: "\25B8";
+  color: #1f5e3a;
+  flex: none;
+  transition: transform 0.15s;
+}
+details.acc[open] > summary::before {
+  transform: rotate(90deg);
+}
+details.acc > summary > h2 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+details.acc > summary:focus-visible,
+.reading-bar button:focus-visible,
+.sup-ref a:focus-visible {
+  outline: 3px solid #0b57d0;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  details.acc > summary::before {
+    transition: none;
+  }
+}
+
+/* toolbar under the fixed navbar */
+.reading-bar {
+  position: sticky;
+  top: 56px;
+  z-index: 1020;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  padding: 0.4rem 0;
+  margin-top: -3rem;
+  margin-bottom: 2rem;
+}
+.reading-bar[hidden] {
+  display: none;
+}
+.reading-bar .container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.reading-bar .rb-label {
+  font-size: 0.8rem;
+  color: #495057;
+  margin-right: auto;
+}
+.seg {
+  display: inline-flex;
+  border: 1px solid #343a40;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.seg button {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.9rem;
+  border: 0;
+  background: #fff;
+  color: #212529;
+  cursor: pointer;
+}
+.seg button + button {
+  border-left: 1px solid #343a40;
+}
+.seg button[aria-pressed="true"] {
+  background: #343a40;
+  color: #fff;
+}
+.reading-bar .lnk {
+  font-size: 0.85rem;
+  color: #0b4aa8;
+  background: none;
+  border: 0;
+  padding: 0.3rem 0.2rem;
+  cursor: pointer;
+}
+.reading-bar .lnk:hover {
+  text-decoration: underline;
+}
+@media (max-width: 576px) {
+  .reading-bar .rb-label {
+    display: none;
+  }
+}
+
+/* numbered citations */
+sup.r {
+  font-size: 0.75em;
+  line-height: 0;
+}
+sup.r a {
+  text-decoration: none;
+  color: #0b4aa8;
+  padding: 0 0.05em;
+}
+sup.r a:hover {
+  text-decoration: underline;
+}
+.ref-list li {
+  margin-bottom: 0.4rem;
+}
+.ref-list li:target,
+.ref-table tr:target {
+  background: #fff8d6;
+}
+.ref-table td,
+.ref-table th {
+  font-size: 0.9rem;
+}
+
+@media print {
+  .reading-bar {
+    display: none !important;
+  }
+  .brief {
+    display: none !important;
+  }
+  html.mode-brief details.acc > .acc-body > * {
+    display: revert !important;
+  }
+  html.mode-brief details.acc > .acc-body > .brief {
+    display: none !important;
+  }
+  details.acc > summary::before {
+    display: none;
+  }
+}

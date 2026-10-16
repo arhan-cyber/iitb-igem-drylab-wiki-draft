@@ -45,6 +45,9 @@
       rel="stylesheet"
     />
 
+    <!-- Reading mode (Brief / Full): sets the stored mode before first paint -->
+    <script src="{{ url_for('static', filename = 'reading-mode.js') }}"></script>
+
     <title>{{ title }} | IIT Bombay iGEM 2026</title>
   </head>
   <body>
@@ -62,6 +65,19 @@
         </div>
       </div>
     </header>
+
+    <!-- Reading mode toolbar (shown by JavaScript only; without it the full text is displayed) -->
+    <div class="reading-bar" id="reading-bar" hidden>
+      <div class="container">
+        <span class="rb-label" id="rb-label">Reading depth</span>
+        <div class="seg" role="group" aria-labelledby="rb-label">
+          <button type="button" id="mBrief" aria-pressed="false">Brief</button>
+          <button type="button" id="mFull" aria-pressed="true">Full</button>
+        </div>
+        <button type="button" class="lnk" id="expandAll">Expand all</button>
+        <button type="button" class="lnk" id="collapseAll">Collapse all</button>
+      </div>
+    </div>
 
     <!-- Page Content -->
     <div class="container content">
