@@ -152,6 +152,13 @@ Several early results turned out to be weaker than they looked: a ranking with a
 No laboratory data exist, the key mutation is an assumption, and several analyses are unfinished. **[pending]**
 </div>
 
+Figure A summarises the status of each step.
+
+<figure class="figure my-4 key">
+  <img src="/static/figures/explainer_validation_status.png" class="figure-img img-fluid" alt="Table of six rows, Sequence to Process, and four columns: literature, computed, hypothesis and pending, each filled with short entries or none. An orange bar states that no wet-lab data exist for any step.">
+  <figcaption class="figure-caption"><strong>Figure A.</strong> Validation status of each step: what rests on literature, what was computed here, what is a hypothesis and what is pending. No step has wet-lab data. Entries are taken from the step pages and follow their status labels. Model-implied; not validated against wet-lab data.</figcaption>
+</figure>
+
 - No wet-lab data. No molecular dynamics. No formal proximity cut-off or cross-model consensus.
 - The V1254W route to C14 in *S. cerevisiae* is an assumption.
 - The knockout screen has not been repeated with the early-release reaction, and the growth penalty has not been computed.

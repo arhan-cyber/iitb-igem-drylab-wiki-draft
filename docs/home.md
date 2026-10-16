@@ -23,8 +23,8 @@ The modelling addressed one question at three scales and then examined whether t
 6. **Process.** Is the product suitable for its intended use, and how does it compare with other coolants?
 
 <figure class="figure my-4 key">
-  <img src="/static/figures/overview_story.png" class="figure-img img-fluid" alt="Six boxes in a row, left to right: Sequence, FAS interaction, Bridge, Metabolism, Trust, Process. Each box states the question, the key result and the status.">
-  <figcaption class="figure-caption"><strong>Figure 1.</strong> The six steps and the result each passes to the next. The key assumption behind steps 1 to 3 is that a FAS2 point mutation can release C14 in <em>S. cerevisiae</em>; this is an assumption and not an established result. Model-implied; not validated against wet-lab data.</figcaption>
+  <img src="/static/figures/explainer_overview.png" class="figure-img img-fluid" alt="Six cards in two rows: Sequence, FAS interaction, Bridge, Metabolism, Trust and Process, read left to right in row 1 and right to left in row 2. Each card lists input, method, result and status tags. A dashed arrow from Bridge to Metabolism notes that Step 4 ran without the early-release reaction added in Step 3.">
+  <figcaption class="figure-caption"><strong>Figure 1.</strong> The six modelling steps, with the input, method, result and status of each. Steps 1 to 3 assume that V1254W releases C14 in <em>S. cerevisiae</em> (assumption A1, a hypothesis). The Step 4 analyses were run without the early-release reaction added in Step 3; the rerun is pending. Process results are screening level and the choice of coolant is pending. Figures and identifiers shown are those reported on the step pages. Model-implied; not validated against wet-lab data.</figcaption>
 </figure>
 
 ## Guide to the pages {#where-to-read-what}

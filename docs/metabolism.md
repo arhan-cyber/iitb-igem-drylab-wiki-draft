@@ -77,7 +77,12 @@ Without the added reaction, the model makes myristic acid only by chopping two c
 
 **[computed]** At 50 % growth every step of one route carried identical flux (0.1192 mmol gDW⁻¹ h⁻¹), which identifies it as a single unbranched path:
 
-C16:0 → (r_0402) hexadecanoyl-CoA → (r_0123, acyl-CoA oxidase, *POX1*) → (r_2251) enoyl-CoA hydratase → (r_0102) myristoyl-CoA → (r_0412) free C14:0 → export.
+C16:0 → (r_0402) hexadecanoyl-CoA → (r_0123, acyl-CoA oxidase, *POX1*) → (r_2251) enoyl-CoA hydratase → (r_0102) myristoyl-CoA → (r_0412) free C14:0 → export (Figure B).
+
+<figure class="figure my-4">
+  <img src="/static/figures/explainer_c14_route.png" class="figure-img img-fluid" alt="Vertical chain of seven boxes from C16:0 (palmitic acid) through hexadecanoyl-CoA, acyl-CoA oxidase (POX1, the committed step), enoyl-CoA hydratase, myristoyl-CoA and free C14:0 to export. Side notes give the ligase-reversal check, deletion of POX1, FOX2, POT1, PXA1 or PXA2 giving exactly zero, the r_0102 blocking result, and the consequence for the plan.">
+  <figcaption class="figure-caption"><strong>Figure B.</strong> The single route to C14:0 in the model without early release, at 50 % of wild-type growth: C16:0, hexadecanoyl-CoA, acyl-CoA oxidase (<em>POX1</em>, the committed step), enoyl-CoA hydratase, myristoyl-CoA, free C14:0 and export. Deleting <em>POX1</em> gave exactly zero. Free C14:0, not methyl myristate, is modelled. Model-implied; not validated against wet-lab data.</figcaption>
+</figure>
 
 The model formed C14:0 by removing one two-carbon unit from C16:0 through β-oxidation, not by termination of synthesis. *POX1* catalyses the committed step, and its deletion therefore gave exactly zero. Robustness checks: forbidding reversal of the ATP-driven ligase step lowered production by 2 % (0.1192 to 0.1167 mmol gDW⁻¹ h⁻¹), and loopless FBA returned identical flux. Blocking r_0102 (analysis B) lowered export at the 50 % growth floor from 0.12719 to 0.10977 mmol gDW⁻¹ h⁻¹, and the model switched to an alternative route (degradation of C18:1 to C12 followed by re-elongation); blocking both reactions abolished C14 export.
 

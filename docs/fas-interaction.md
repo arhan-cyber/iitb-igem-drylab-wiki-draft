@@ -117,7 +117,17 @@ The calculation was repeated 15 times on laboratory graphics processors, giving 
 - **C1305 contact (soft cutoff).** One pocket contact on the catalytic cysteine C1305 with a cutoff of 6, 8 or 10 Å, plus an unconstrained baseline, a V1254W variant, and C16 and C22 ligands at 8 Å (7 runs).
 - **Forced gate contacts.** Pocket contacts on M1251 and M1260 (and in one run also V1254) with `force: true`, with and without the Boltz steering potentials (8 runs).
 
-In total, 75 models were generated. The earlier Colab runs used one sample and constraints that were not fully recorded, so they are not directly comparable. Figure 1 shows the distances obtained, Figure 2 the confidence scores and Figure 3 the comparison across chain lengths. Figure 4 shows one model as an example.
+In total, 75 models were generated. The earlier Colab runs used one sample and constraints that were not fully recorded, so they are not directly comparable. Figure A outlines the workflow and Figure B the two constraint designs. Figure 1 shows the distances obtained, Figure 2 the confidence scores and Figure 3 the comparison across chain lengths. Figure 4 shows one model as an example.
+
+<figure class="figure my-4">
+  <img src="/static/figures/explainer_boltz_pipeline.png" class="figure-img img-fluid" alt="Flow chart. Row 1: inputs (535-residue KS domain, myristic acid), constraint design, Boltz-2 run (15 runs, 75 models) and outputs, each marked computed. Then measurement of distances and confidence, a grey diamond gate labelled pending that asks whether controls behave, and a comparison of setups. A grey box of proposed controls, marked pending and not run, feeds the gate; a no branch says to fix the setup.">
+  <figcaption class="figure-caption"><strong>Figure A.</strong> Boltz-2 workflow for the KS domain. Inputs, constraint design, 15 runs (75 models), measurement and comparison were done <strong>[computed]</strong>. Positive and negative controls and a gate that would decide whether poses are interpreted are planned and have not been run <strong>[pending]</strong>; no numeric thresholds exist yet, and the comparison reported here was made without the gate. The C16 and C22 chain-length runs described below were done and are separate from these planned controls. Model-implied; not validated against wet-lab data.</figcaption>
+</figure>
+
+<figure class="figure my-4">
+  <img src="/static/figures/explainer_constraint_designs.png" class="figure-img img-fluid" alt="Two panels. Design A, soft contact on C1305 (7 runs): M1251 at 3.1 to 6.3 angstrom and M1260 at 15 to 17 angstrom from the C14 chain, neither constrained. Design B, forced contacts on M1251 and M1260 (8 runs): M1251 at 3.1 to 6.3 angstrom and M1260 at 3.9 to 6.5 angstrom.">
+  <figcaption class="figure-caption"><strong>Figure B.</strong> Two constraint designs on the same KS-domain input. With a soft contact on C1305 (7 runs) the C14 chain lay 15–17 Å from M1260; with forced contacts on M1251 and M1260 (8 runs) it lay 3.9–6.5 Å. M1251 stayed 3.1–6.3 Å away in both, no clash was seen, and confidence (0.90–0.94) did not separate the designs. Schematic of constraints and measured distances, not of geometry. Model-implied; not validated against wet-lab data.</figcaption>
+</figure>
 
 <figure class="figure my-4 key">
   <img src="/static/figures/boltz_distance_spread.png" class="figure-img img-fluid" alt="Dot plot of the distance from C14 to M1251, V1254 and M1260 for four Boltz-2 setups, five models each. Distance to M1251 stays between about 3 and 6 angstrom in every setup, above a shaded band at 0.96 to 1.77 angstrom. Distance to M1260 is about 15 angstrom without forced contacts and about 4 to 6 angstrom when M1260 is forced.">

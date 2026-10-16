@@ -22,7 +22,12 @@ The genome-scale yeast model had no way to represent a fatty acid synthase that 
 With the new reaction switched on, all of the model's C14 comes from it rather than from breaking down longer fatty acids. Maximum C14 export increased by 2.6 % at half of wild-type growth. Supplying more NADPH would raise it by 150.9 %. **[computed]**
 </div>
 
-**Result.** With the reaction active, 100 % of C14:0 originated from the added reaction and none from β-oxidation. Maximum C14:0 export increased by 2.6 % at 50 % of wild-type growth (0.119191 to 0.122237 mmol gDW⁻¹ h⁻¹; +3.1 % at 10 % growth and +2.6 % at 90 %). The sensitivity of C14 export to the availability of individual resources is shown in Figure 1.
+**Result.** With the reaction active, 100 % of C14:0 originated from the added reaction and none from β-oxidation. Maximum C14:0 export increased by 2.6 % at 50 % of wild-type growth (0.119191 to 0.122237 mmol gDW⁻¹ h⁻¹; +3.1 % at 10 % growth and +2.6 % at 90 %). The sensitivity of C14 export to the availability of individual resources is shown in Figure 1; Figure A summarises the reaction and its effect.
+
+<figure class="figure my-4">
+  <img src="/static/figures/explainer_bridge_early_release.png" class="figure-img img-fluid" alt="Flow chart. Yeast9 as published has FAS reactions ending at C16:0-CoA and C18:0-CoA and no early C14 release. An added early-release reaction, a hypothesis that inherits assumption A1, switches the C14 source: all C14:0 then comes from the added reaction. The result box gives +2.6 % maximum C14 export at 50 % of wild-type growth. A bar panel shows NADPH +150.9 % far above ATP +36 %, maintenance +7.6 % and acetyl-CoA or malonyl-CoA +0.01 %.">
+  <figcaption class="figure-caption"><strong>Figure A.</strong> Yeast9 has no early C14 release from FAS, so a reaction was added (a modelling hypothesis that inherits assumption A1). With it, all C14:0 comes from the added reaction and maximum export rose 2.6 % at 50 % of wild-type growth; freeing NADPH would raise it 150.9 %, ATP 36 %, maintenance 7.6 % and acetyl-CoA or malonyl-CoA 0.01 %. The Step 4 analyses were run without this reaction. Model-implied upper bounds; not validated against wet-lab data.</figcaption>
+</figure>
 
 <figure class="figure my-4 key">
   <img src="/static/figures/bridge_early_release.png" class="figure-img img-fluid" alt="Left: bars of maximum C14 export at 10, 50 and 90 percent growth, with and without the early-release reaction, nearly equal. Right: horizontal bars showing the change in C14 export when each resource is made free: NADPH plus 150.9 percent, ATP plus 36 percent, NGAM zero plus 7.6 percent, acetyl-CoA and malonyl-CoA plus 0.01 percent.">

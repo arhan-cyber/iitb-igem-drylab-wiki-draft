@@ -50,8 +50,8 @@ The pre-flight tool (Software page) applies six automated checks to a scoring fu
 The verdict was NOT USABLE: the tool withheld strain proposals because checks D1, D2 and D3 failed, and no ranked knockout list was therefore passed to experimental work. Four of the six checks are not new: D3–D6 automate established methods, and D4 is already implemented in memote.[@lieven2020|memote, the model-testing tool; the overlap with D4 is a team statement that was not checked against the memote tests] Automated versions of D1 and D2 were not found in any tool surveyed by the team (Figure 1).
 
 <figure class="figure my-4">
-  <img src="/static/figures/preflight_gate.png" class="figure-img img-fluid" alt="Diagram contrasting search, which ranks candidates, with pre-flight, which checks the scoring function. Pre-flight sits between the model and the search; on pass the search runs and produces a proposal sheet, on fail no proposals are issued with the reason.">
-  <figcaption class="figure-caption"><strong>Figure 1.</strong> Workflow position of pre-flight. Search identifies the candidate that scores best; pre-flight assesses whether the score is informative. Neither replaces the other. Schematic.</figcaption>
+  <img src="/static/figures/explainer_preflight_gate.png" class="figure-img img-fluid" alt="A scoring function feeds a table of six pre-flight checks, D1 to D6, with their questions and the team results (D1, D2 and D3 FAIL; D4, D5 and D6 WARN). A decision, D1 or D2 failed, leads on yes to Not usable with no proposals issued, and on no to the search and a proposal sheet.">
+  <figcaption class="figure-caption"><strong>Figure 1.</strong> Pre-flight runs six checks on the scoring function before any search. Failure of D1 or D2 withholds proposals. For the team's scoring, D1, D2 and D3 failed and D4 to D6 gave warnings, so no proposals were issued. Thresholds follow assay resolution (1 % detectable, 5 % measurable; replicate variation 1–5 %), not solver tolerance. Model-implied; not validated against wet-lab data.</figcaption>
 </figure>
 
 ## Comparison of loss functions {#loss-function-comparison}
