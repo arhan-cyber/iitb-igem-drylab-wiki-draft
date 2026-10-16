@@ -5,7 +5,7 @@ Only dry-lab pages are included. Pages are Markdown in `docs/`; layout in `wiki/
 
 ## Pages (in reading order)
 Home -> Model (sequence, FAS interaction, bridge, metabolism, trust, process) -> Results ->
-Engineering -> Software -> Contribution -> Sustainability.
+Engineering -> Software -> Contribution -> Life Cycle Assessment.
 
 ## Run locally
     python -m venv venv

@@ -11,5 +11,5 @@ We benchmarked a reinforcement-learning agent for knockout search against brute 
 
 ## 3. A worked screening LCA of a bio-based coolant
 
-An open description of how we compared a yeast-derived ester against commercial immersion coolants: functional units, system boundary, allocation choices, nine proxy datasets built from reaction stoichiometry where ecoinvent has none, and a CFD-derived use phase. Its limits are as useful as its method: the result depends on the grid carbon factor, and the study has not been critically reviewed. See [Sustainability](sustainability).
+An open description of how we compared a yeast-derived ester against commercial immersion coolants: functional units, system boundary, allocation choices, nine proxy datasets built from reaction stoichiometry where ecoinvent has none, and a CFD-derived use phase. Its limits are as useful as its method: the result depends on the grid carbon factor, and the study has not been critically reviewed. See [Life Cycle Assessment](life-cycle-assessment).
 

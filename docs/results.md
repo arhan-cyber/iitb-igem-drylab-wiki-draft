@@ -11,7 +11,7 @@ Every result below is a statement about a model and is **not validated against w
 4. **The ScFAS2 site equivalent to the *Yarrowia* chain-length residue is V1254.** M1251 is excluded; the effect of V1254W in *S. cerevisiae* is an assumption. [Details](model#sequence)
 5. **Our own scoring failed its checks.** Best knockout beat doing nothing by 0.010%; the tool issued no proposals. [Details](model#trust)
 6. **A learned search lost to a trivial one.** Brute force and greedy beat reinforcement learning. [Details](model#trust)
-7. **The coolant case is mixed.** [Details](sustainability)
+7. **The coolant case is mixed.** [Details](life-cycle-assessment)
 
 ## 1. What the model says is reachable
 
@@ -69,9 +69,9 @@ Verdict: not usable; no proposals issued. [Software](software)
 | Greedy | 65% | 23 |
 | Reinforcement learning | 10% | 1,204 |
 
-## 6. Sustainability headline
+## 6. Life cycle assessment headline
 
-Screening-level: in use, methyl myristate emits 5,012 kg CO₂-eq per server-year against 6,071 for an ester-based coolant (−17%) at an ecoinvent India grid factor of about 1.6 kg CO₂-eq/kWh. At the CEA factor 0.716 the optimised process is +14% worse than the ester. Production per kg is higher for methyl myristate in both cases. The study has had no ISO 14044 critical review. [Sustainability](sustainability)
+Screening-level: in use, methyl myristate emits 5,012 kg CO₂-eq per server-year against 6,071 for an ester-based coolant (−17%) at an ecoinvent India grid factor of about 1.6 kg CO₂-eq/kWh. At the CEA factor 0.716 the optimised process is +14% worse than the ester. Production per kg is higher for methyl myristate in both cases. The study has had no ISO 14044 critical review. [Life Cycle Assessment](life-cycle-assessment)
 
 ## What went wrong and what we learned
 

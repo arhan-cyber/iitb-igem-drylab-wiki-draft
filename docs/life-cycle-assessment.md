@@ -93,7 +93,3 @@ The report's own list, plus items found in review:
 ## Acknowledgements
 
 Access to ecoinvent 3.9.1 and guidance on the bioprocess analysis were provided by Prof. Yogendra Shastri, Department of Chemical Engineering, IIT Bombay.
-
-## Sustainable Development Goals
-
-The mapping of this project to the UN Sustainable Development Goals will be added here.

@@ -28,7 +28,7 @@ Our team is engineering *Saccharomyces cerevisiae* to make a C14:0-rich fatty-ac
 | The design cycle we went through | [Engineering](engineering) |
 | The tool other teams can run on their own models | [Software](software) |
 | What we offer to the community | [Contribution](contribution) |
-| The coolant life cycle assessment | [Sustainability](sustainability) |
+| The coolant life cycle assessment | [Life Cycle Assessment](life-cycle-assessment) |
 
 ## How to read the status labels
 
@@ -43,5 +43,5 @@ Every claim on this site carries one of four labels:
 
 1. **The headline result is mostly negative, and useful.** In our metabolic model no gene knockout improves C14:0 production over wild type, and our own scoring setup failed its checks. We report both.
 2. **The mutation route is an assumption.** That a FAS2 point mutation can release C14 in *S. cerevisiae* is supported by a *Yarrowia lipolytica* result, not by *S. cerevisiae* data. All downstream numbers are conditional on it.
-3. **The coolant case is not settled.** Our screening LCA favours methyl myristate in use under some assumptions and not others, and a separate coolant-selection analysis recommends isopropyl myristate on operability grounds. See [Sustainability](sustainability).
+3. **The coolant case is not settled.** Our screening LCA favours methyl myristate in use under some assumptions and not others, and a separate coolant-selection analysis recommends isopropyl myristate on operability grounds. See [Life Cycle Assessment](life-cycle-assessment).
 

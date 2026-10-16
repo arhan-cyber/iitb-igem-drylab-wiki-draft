@@ -76,7 +76,7 @@ Two FBA analyses exist. They use different conditions, so their numbers differ b
 | A8 | The model outputs free myristate, not methyl myristate | Esterification is not in the model | Titre of the coolant is not predicted | By construction |
 | A9 | Assay resolution is GC-MS replicate noise of 1–5% | Project write-up | Thresholds for "separable" shift | Not checked against literature |
 | A10 | Search benchmark runs on a synthetic landscape | Our real landscape turned out to be flat, so comparing searches on it measures nothing | Ranking may not transfer | **[computed]** |
-| A11 | Tank CFD uses constant fluid properties | Simplification | Temperature-dependent viscosity is missed | See [Sustainability](sustainability) |
+| A11 | Tank CFD uses constant fluid properties | Simplification | Temperature-dependent viscosity is missed | See [Life Cycle Assessment](life-cycle-assessment) |
 
 ## Step 1. Sequence level {#sequence}
 
@@ -332,10 +332,10 @@ Random search on the RL agent's budget also matched greedy, so the landscape has
 ## Step 6. Process level {#process}
 
 
-This step connects the strain to its use. Full detail is on [Sustainability](sustainability); the modelling parts are summarised here.
+This step connects the strain to its use. Full detail is on [Life Cycle Assessment](life-cycle-assessment); the modelling parts are summarised here.
 
 - **CFD [computed].** 17 OpenFOAM simulations (chtMultiRegionFoam, steady state, 3-D conjugate heat transfer, constant fluid properties) of a 1,200 W server immersed in each coolant. At the same flow (0.42 m/s) the hottest component reaches 78.1 °C with methyl myristate against 87.2 °C (mineral oil) and 88.0 °C (ester-based coolant). Methyl myristate stays below 85 °C at 0.27 m/s; the others need 0.80 m/s.
-- **LCA [computed, screening level].** Methyl myristate's production footprint per kg is far higher than the commercial coolants' today; in use it can save cooling electricity. Whether that nets out in its favour depends on the grid carbon factor. See the caveats on the Sustainability page.
+- **LCA [computed, screening level].** Methyl myristate's production footprint per kg is far higher than the commercial coolants' today; in use it can save cooling electricity. Whether that nets out in its favour depends on the grid carbon factor. See the caveats on the Life Cycle Assessment page.
 - **Coolant selection [computed, data-limited].** A separate comparison of methyl myristate and isopropyl myristate scored methyl myristate about 9% higher on thermal figures of merit, a margin inside the estimate uncertainty. It recommended **isopropyl myristate** on operability grounds because methyl myristate melts at about 18 °C, leaving about 2 °C of margin at a 20 °C inlet. Neither ester can be certified for energised immersion until dielectric breakdown voltage, volume resistivity and pour point are measured. **[pending]** The team's decision between the two is not recorded on this site.
 
 ## How the results affected our design {#m6}
@@ -363,7 +363,7 @@ This step connects the strain to its use. Full detail is on [Sustainability](sus
 | FBA is an upper bound, not a probability | We report no probability of success anywhere | By construction |
 | Free myristate modelled, not methyl myristate | Coolant titre not predicted | By construction |
 | RL agent is a simple linear Q-learner; benchmark on a synthetic landscape | Shows ours lost, not that RL cannot work | Stated |
-| LCA not critically reviewed; placeholders remain | Not for public comparative claims | See Sustainability |
+| LCA not critically reviewed; placeholders remain | Not for public comparative claims | See Life Cycle Assessment |
 
 **Validation we can still do without a wet lab (proposed, not yet planned):** reproduce known literature outcomes in the modified model (for example the *Yarrowia* C14 shift, or the *S. cerevisiae* C6/C8 shifts) and report how closely it matches; finish the positive and negative controls for the structural step; report per-residue confidence for the final models.
 
