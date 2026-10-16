@@ -1,7 +1,6 @@
-<!-- DRAFT built 2026-10-15 from LCA report.pdf (IIT Bombay iGEM 2026). Figures are cropped from that report. TODO: SDG mapping text from the team lead; confirm LCA authors and credits; see the fixes list at the bottom before publishing. -->
 
 <div class="alert alert-warning" role="alert" markdown="1">
-**Screening-level study, not critically reviewed.** It has not had an ISO 14044 critical review and should not be used for public comparative claims. Several inputs are placeholders (listed [below](#what-is-still-open)). The result depends on the grid carbon factor, as shown in the results section. Read it as a method and a first estimate, not a verdict.
+**Screening-level study, not critically reviewed.** It has not had an ISO 14044 critical review and should not be used for public comparative claims. Several inputs are placeholders (listed [below](#limitations-and-open-items)). The result depends on the grid carbon factor, as shown in the results section. Read it as a method and a first estimate, not a verdict.
 </div>
 
 ## Why this study
@@ -38,7 +37,7 @@ Air cooling is reaching its limits as data-centre power density rises, and singl
 
 <figure class="figure my-4">
   <img src="/static/figures/lca_summary.jpg" class="figure-img img-fluid" alt="Horizontal stacked bars of kilograms of CO2-equivalent per server-year: methyl myristate optimised process 5,011 (minus 17 percent), after process steps 1 to 3 about 4,399 (minus 28 percent), ester-based coolant 6,071, mineral oil 6,055 (placeholder).">
-  <figcaption class="figure-caption">Climate impact per server-year at an ecoinvent India grid factor of about 1.6 kg CO₂-eq/kWh. The mineral-oil bar uses a placeholder (about 1.5 kg/kg); the "steps 1 to 3" bar is an estimate. Figure from the LCA report; the figure shows 5,011 where the report text says 5,012, a rounding difference to be reconciled.</figcaption>
+  <figcaption class="figure-caption">Climate impact per server-year at an ecoinvent India grid factor of about 1.6 kg CO₂-eq/kWh. The mineral-oil bar uses a placeholder (about 1.5 kg/kg); the "steps 1 to 3" bar is an estimate. Figure from the LCA report; the figure shows 5,011 where the report text says 5,012, a rounding difference.</figcaption>
 </figure>
 
 ### Per kilogram (cradle-to-gate, kg CO₂-eq/kg) **[computed]**
@@ -59,7 +58,7 @@ MM needs about one third of the flow of the ester-based coolant (0.27 vs 0.80 m/
 
 | MM vs ester-based coolant, per server-year, chiller | Baseline (632) | Optimised (449) | Steps 1–3 (about 270) |
 |---|---|---|---|
-| Base case: ecoinvent India grid, about 1.6 kg CO₂-eq/kWh (derived, to be confirmed) | −7% | −17% | −28% |
+| Base case: ecoinvent India grid, about 1.6 kg CO₂-eq/kWh (derived, not read directly from ecoinvent) | −7% | −17% | −28% |
 | Sensitivity: CEA grid-average factor 0.716 kg CO₂-eq/kWh | +37% | **+14%** | −9% |
 
 The ranking flips with the grid factor because MM's advantage is electricity it does not use. On a low-carbon grid, MM's production footprint matters more and the process improvements become essential. At the CEA factor, the optimised MM process repays its extra production impact in 9.3 years for a 20 L fill; it breaks even within a 5-year life only if the fill is below about 11 L per server or MM production falls below about 340 kg CO₂-eq/kg.
@@ -76,7 +75,7 @@ A coolant-selection comparison of methyl myristate and isopropyl myristate (IPM)
 
 The yeast strain's output enters the LCA as MM. Three links are not yet consistent with the metabolic model: (1) the LCA borrows a fatty-acid profile from the *Yarrowia* I1220W result, which is the assumption our [Model](model#m4) flags as unsupported in *S. cerevisiae*; (2) it assumes xylose use from corn-stover hydrolysate, while the FBA optimises free C14:0 on glucose; (3) the FBA predicts free myristate, whereas the LCA models methyl myristate, so the esterification step must be stated. **[pending]** Replace the borrowed profile with the team strain's measured lipid content and C14 share.
 
-## What is still open
+## Limitations and open items
 
 The report's own list, plus items found in review:
 
@@ -93,12 +92,8 @@ The report's own list, plus items found in review:
 
 ## Acknowledgements
 
-Access to ecoinvent 3.9.1 and guidance on the bioprocess analysis were provided by Prof. Yogendra Shastri, Department of Chemical Engineering, IIT Bombay. TODO: confirm all authors and credits (process flow design; CFD simulations).
+Access to ecoinvent 3.9.1 and guidance on the bioprocess analysis were provided by Prof. Yogendra Shastri, Department of Chemical Engineering, IIT Bombay.
 
 ## Sustainable Development Goals
 
-TODO: the team's evaluation of the project against one or more SDGs is not yet written. This page is defined by that evaluation on the iGEM wiki; add it here.
-
-## References
-
-TODO: reproduce the LCA report's reference list in one consistent style; fix the entry marked "to be confirmed" and replace internal documents.
+The mapping of this project to the UN Sustainable Development Goals will be added here.

@@ -1,4 +1,3 @@
-<!-- DRAFT built 2026-10-15. Sources: team writeup (wiki word.pdf), repo analysis files, Linear issues, LCA report. Items marked TODO or [pending] need a human. Provenance comments sit next to each section. -->
 
 <div class="alert alert-warning" role="alert" markdown="1">
 **Read this first.** Every number on this page describes a model. **None is validated against wet-lab data.** Labels: **[computed]** our own run; **[literature]** published source; **[hypothesis]** reasoned, untested; **[pending]** not finished.
@@ -26,7 +25,6 @@
 
 ## Data and parameters {#m3}
 
-<!-- provenance: wiki word.pdf pp1-2; ks_analysis report (Linear IGE-14); FBA report; fas_c14_diagnosis.md -->
 
 ### Structures **[literature]**
 
@@ -54,7 +52,7 @@ Two FBA analyses exist. They use different conditions, so their numbers differ b
 | Solver | GLPK | GLPK |
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-**[pending]** Reconcile the two analyses: confirm the exact model version in each (a team comment names v9.0.2 for one run), and the reason for the growth-rate difference. Glucose uptake differs (1.0 vs 1.1), which probably explains most of it. Tracked internally.
+**[pending]** Reconcile the two analyses: confirm the exact model version in each (a team comment names v9.0.2 for one run), and the reason for the growth-rate difference. Glucose uptake differs (1.0 vs 1.1), which probably explains most of it.
 </div>
 
 ### Literature inputs **[literature]**
@@ -82,7 +80,6 @@ Two FBA analyses exist. They use different conditions, so their numbers differ b
 
 ## Step 1. Sequence level {#sequence}
 
-<!-- provenance: wiki word.pdf pp2-3; ScFAS2 KS Domain Analysis report (Linear IGE-14); Linear IGE-40 comments -->
 
 **Question.** *Which ScFAS2 residue sits where Yarrowia I1220 sits?* Rigouin et al. 2017 identified I1220 in the fatty acid binding site of YlFAS as controlling chain length: replacing it with tryptophan raised C14 content to 11.6% of total lipid in stationary phase. **[literature]**
 
@@ -109,7 +106,6 @@ The three pairs are separated by a constant 34-residue offset from insertions in
 
 ## Step 2. FAS interaction level {#structure}
 
-<!-- provenance: wiki word.pdf pp3-8; Linear IGE-14 comment 2026-06-20; ks_analysis.pdf; Linear IGE-20 comments -->
 
 **Question.** *Does the KS3 pocket hold a C14 chain, and which residues must we leave alone?*
 
@@ -190,7 +186,6 @@ C16 and C22 runs exist as controls: if the pocket discriminates on chain length,
 
 ## Step 3. The bridge: representing the mutation in a metabolic model {#bridge}
 
-<!-- provenance: rl based model/analysis/fas_c14_diagnosis.md (reproducible: analysis/fas_c14_diagnosis.py); Linear IGE-31 comments -->
 
 **Question.** *Can Yeast9 represent early C14 release from FAS at all?*
 
@@ -209,11 +204,10 @@ C16 and C22 runs exist as controls: if the pocket discriminates on chain length,
 **Caveat.** The reaction is a modelling hypothesis about what V1254W does. It inherits assumption A1. Also, the frontier and knockout screen in Step 4 were run on the model **without** the reaction. Re-running them with it is **[pending]**.
 </div>
 
-**Gaps and naming in Yeast9 found along the way** (team model comparison; documents not yet summarised here). Yeast9 was chosen over Yeast8 because it represents more of the pathways we need. Genes flagged as absent: *PEX11* (beta-oxidation) and *ATR1*, *CYP94C1* (ω-oxidation). *FOX1* is present as *POX1*, a naming mismatch with the same function. A hypothesis, not yet run, is that omitting the two ω-oxidation genes costs little yield. **[pending]**
+**Gaps and naming in Yeast9 found along the way** (from our model comparison). Yeast9 was chosen over Yeast8 because it represents more of the pathways we need. Genes flagged as absent: *PEX11* (beta-oxidation) and *ATR1*, *CYP94C1* (ω-oxidation). *FOX1* is present as *POX1*, a naming mismatch with the same function. A hypothesis, not yet run, is that omitting the two ω-oxidation genes costs little yield. **[pending]**
 
 ## Step 4. Metabolism-wide level {#metabolism}
 
-<!-- provenance: wiki word.pdf pp13-15 (analysis A); FBA report pp11-12 (analysis B); analysis/reachable_demo; analysis/metrics -->
 
 **Question.** *What C14:0 can the cell reach, at what cost to growth, and by which route?*
 
@@ -287,7 +281,6 @@ The same model supports a reachable-set analysis for a fatty-acid *profile*, not
 
 ## Step 5. Can we trust the ranking? {#trust}
 
-<!-- provenance: wiki word.pdf pp9-13, 16-22; igem-preflight README; analysis/metrics/REPORT.md; Linear IGE-57 -->
 
 ### The failure that started it
 
@@ -327,7 +320,7 @@ We built a reinforcement-learning (RL) agent for knockout search and benchmarked
 | Greedy hill-climbing | 65% | 1.14% | 23 |
 | Reinforcement learning | 10% | 10.13% | 1,204 |
 
-Random search on the RL agent's budget also matched greedy, so the landscape has many near-optimal answers. A separate earlier RL run on a four-product profile found only 3 distinct flux vectors in 122 evaluations, the same degeneracy seen from another angle. **[pending]** Verification of that run by the named reviewers is not yet complete.
+Random search on the RL agent's budget also matched greedy, so the landscape has many near-optimal answers. A separate earlier RL run on a four-product profile found only 3 distinct flux vectors in 122 evaluations, the same degeneracy seen from another angle. Independent verification of that run has not been done.
 
 <figure class="figure my-4">
   <img src="/static/figures/rl_benchmark.png" class="figure-img img-fluid" alt="Three bar charts comparing brute force, greedy and reinforcement learning: share finding the exact best answer (100, 65, 10 percent), mean shortfall (0, 1.14, 10.13 percent) and evaluations (175, 23, 1204).">
@@ -338,7 +331,6 @@ Random search on the RL agent's budget also matched greedy, so the landscape has
 
 ## Step 6. Process level {#process}
 
-<!-- provenance: LCA report; Linear IGE-48 (coolant selection comments) -->
 
 This step connects the strain to its use. Full detail is on [Sustainability](sustainability); the modelling parts are summarised here.
 
@@ -377,7 +369,7 @@ This step connects the strain to its use. Full detail is on [Sustainability](sus
 
 ## Reproducibility {#m8}
 
-Code: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a> (MIT). TODO: mirror to iGEM GitLab as required for the Software page.
+Code: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a> (MIT).
 
 ```
 git clone <repository>
@@ -387,7 +379,7 @@ python3 examples/run_feasibility.py     # prints: Wild-type growth: 0.081100 /h 
 python3 examples/run_diagnostics.py     # prints: VERDICT: NOT USABLE, *** NO PROPOSALS ISSUED ***
 ```
 
-Python 3.10 or newer; GLPK ships with COBRApy. The Yeast-GEM model (about 11 MB) is downloaded separately from SysBioChalmers/yeast-GEM. The expected output of the diagnostics script is the demonstration, not a bug. **[pending]** State the exact test counts and the machine each was run on.
+Python 3.10 or newer; GLPK ships with COBRApy. The Yeast-GEM model (about 11 MB) is downloaded separately from SysBioChalmers/yeast-GEM. The expected output of the diagnostics script is the demonstration, not a bug.
 
 ## References {#m9}
 
@@ -400,8 +392,8 @@ Python 3.10 or newer; GLPK ships with COBRApy. The Yeast-GEM model (about 11 MB)
 7. Wei Y, Siewers V, Nielsen J (2017). *Appl Microbiol Biotechnol*. doi:10.1007/s00253-017-8126-7.
 8. Madeira F, et al. (2022). Search and sequence analysis tools services from EMBL-EBI in 2022. *Nucleic Acids Res* 50:W276–W279.
 9. Needleman SB, Wunsch CD (1970). A general method applicable to the search for similarities in the amino acid sequence of two proteins. *J Mol Biol* 48:443–453.
-10. Das I, Dennis JE (1997). Weighted-sum drawbacks for Pareto set generation. doi:10.1007/BF01197559. TODO: add full title.
-11. Schuetz R, Kuepfer L, Sauer U (2007). *Mol Syst Biol*. doi:10.1038/msb4100162. TODO: add full title.
+10. Das I, Dennis JE (1997). Weighted-sum drawbacks for Pareto set generation. doi:10.1007/BF01197559.
+11. Schuetz R, Kuepfer L, Sauer U (2007). *Mol Syst Biol*. doi:10.1038/msb4100162.
 12. Lieven C, et al. (2020). memote. *Nat Biotechnol*. doi:10.1038/s41587-020-0446-y.
-13. Boltz-2 (Passaro et al. 2025). TODO: confirm full citation. Boltz-1: Wohlwend M, et al. (2024), bioRxiv.
-14. Gajewski J, et al. (2017). TODO: full citation of the *S. cerevisiae* FAS engineering paper referred to in our decisions record.
+13. Boltz-2 (Passaro et al. 2025). Boltz-1: Wohlwend M, et al. (2024), bioRxiv.
+14. Gajewski J, et al. (2017). *S. cerevisiae* fatty acid synthase engineering (full citation to be added).

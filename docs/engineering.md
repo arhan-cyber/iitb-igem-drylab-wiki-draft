@@ -1,4 +1,3 @@
-<!-- DRAFT built 2026-10-15. Dry-lab engineering cycle only. TODO: wet-lab engineering entries belong to the wet-lab team's pages. -->
 
 Our dry lab went through one full Design, Build, Test, Learn cycle, and the Test stage told us to change the design.
 

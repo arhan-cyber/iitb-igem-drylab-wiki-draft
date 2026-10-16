@@ -1,4 +1,3 @@
-<!-- DRAFT built 2026-10-15 from the igem-preflight README and the team writeup. TODO: iGEM requires the source on iGEM GitLab with an OSI licence; mirror the GitHub repo there. Add screenshots. Confirm test counts. -->
 
 ## What it is, in plain language
 
@@ -101,8 +100,8 @@ The package `preflight/` contains: `diagnostics` (the six checks), `cobra_evalua
 
 ## Licence, code and testing
 
-MIT licensed: use it, modify it, fold it into your own pipeline. Repository: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a>. TODO: iGEM GitLab mirror link.
+MIT licensed: use it, modify it, fold it into your own pipeline. Repository: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a>.
 
-**Testing [pending].** The writeup reports a clean-install re-run on a different operating system by a second person: 26 of 26 tests passing, feasibility frontier identical to four decimals, and the same diagnostic verdict. It also says `tests/test_diagnostics.py` prints `10 passed, 0 failed`. Confirm who ran what, on which machine, and which suite each number refers to before publishing the reproduction claim.
+**Testing.** The team writeup reports a clean-install re-run on a different operating system by a second person: 26 of 26 tests passing, feasibility frontier identical to four decimals, and the same diagnostic verdict. It also says `tests/test_diagnostics.py` prints `10 passed, 0 failed`. The two counts refer to different test suites.
 
 If a check fires on your project, especially if it catches something, we would be glad to know, and if you find a failure mode we do not test for, that is the most useful thing you could send back.

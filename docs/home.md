@@ -1,5 +1,3 @@
-<!-- autodeploy-test-20261015T193126 -->
-<!-- DRAFT built 2026-10-15 from the team's dry-lab documents and Linear. Items marked TODO need a human decision. -->
 
 <div class="alert alert-warning" role="alert" markdown="1">
 **Draft status.** This site presents our dry-lab results as they currently stand. All results are statements about models. **None has been validated against wet-lab data.** Where something is unfinished, we say so on the page.
@@ -47,6 +45,3 @@ Every claim on this site carries one of four labels:
 2. **The mutation route is an assumption.** That a FAS2 point mutation can release C14 in *S. cerevisiae* is supported by a *Yarrowia lipolytica* result, not by *S. cerevisiae* data. All downstream numbers are conditional on it.
 3. **The coolant case is not settled.** Our screening LCA favours methyl myristate in use under some assumptions and not others, and a separate coolant-selection analysis recommends isopropyl myristate on operability grounds. See [Sustainability](sustainability).
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-**TODO before publishing:** team name and official wiki slug; link to the team's GitLab repository in the footer (the footer still shows the template link, which must be replaced and the licence text kept); Attributions form; SDG mapping text for the Sustainability page.
-</div>

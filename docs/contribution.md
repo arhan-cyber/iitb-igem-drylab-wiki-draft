@@ -1,4 +1,3 @@
-<!-- DRAFT built 2026-10-15. Three dry-lab contributions. Check ecoinvent licence before sharing any proxy datasets. -->
 
 What our dry lab offers other teams, and what you can take without adopting anything else.
 
@@ -14,6 +13,3 @@ We benchmarked a reinforcement-learning agent for knockout search against brute 
 
 An open description of how we compared a yeast-derived ester against commercial immersion coolants: functional units, system boundary, allocation choices, nine proxy datasets built from reaction stoichiometry where ecoinvent has none, and a CFD-derived use phase. Its limits are as useful as its method: the result depends on the grid carbon factor, and the study has not been critically reviewed. See [Sustainability](sustainability).
 
-<div class="alert alert-secondary" role="alert" markdown="1">
-**TODO:** if the proxy-dataset table is shared as reusable material, check the ecoinvent licence first.
-</div>

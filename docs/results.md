@@ -1,4 +1,3 @@
-<!-- DRAFT built 2026-10-15. RESULTS is the consolidated version of MODEL: same numbers, same rounding, no new numbers. Each item links to its full derivation. -->
 
 <div class="alert alert-warning" role="alert" markdown="1">
 Every result below is a statement about a model and is **not validated against wet-lab data**. Full methods, assumptions and numbers: [Model](model).
