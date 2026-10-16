@@ -50,7 +50,7 @@ One unbranched route: C16:0 → hexadecanoyl-CoA → acyl-CoA oxidase (*POX1*) �
 
 ## 4. Structural result: site and pocket
 
-V1254 (ScFAS2) corresponds to I1220 (YlFAS), with a 34-residue offset and no gaps at or beside the key column. In constrained Boltz-2 runs, C14 sits 4.35 Å from V1254 and 6.91 Å from M1260, and clashes with M1251 at 0.96–1.77 Å, which we interpret as a closed conformational gate (**[hypothesis]**). Unconstrained runs do not place the ligand. [Details](model#structure)
+V1254 (ScFAS2) corresponds to I1220 (YlFAS), with a 34-residue offset and no gaps at or beside the key column. In the first constrained Boltz-2 runs C14 sat 4.35 Å from V1254 and 6.91 Å from M1260 and clashed with M1251 at 0.96–1.77 Å, which we read as a closed conformational gate (**[hypothesis]**). Reruns on the lab server did not reproduce the clash, and distances moved with the choice of constrained residues, so these numbers describe the setup as well as the pocket. [Details](model#structure)
 
 ## 5. Our scoring failed its own checks
 
@@ -76,8 +76,8 @@ Screening-level: in use, methyl myristate emits 5,012 kg CO₂-eq per server-yea
 ## What went wrong and what we learned
 
 - Our first ranking looked authoritative and was meaningless (0.010% margin). The threshold that matters is the assay's resolution, not the solver's.
-- Unconstrained Boltz-2 does not place a flexible fatty acid in an open tunnel.
-- Three standard fixes (UFF minimisation, sculpting, mutagenesis wizard) did not resolve the M1251 clash.
+- Unconstrained Boltz-2 placed the fatty acid poorly in the first run but near the catalytic cysteine in a rerun, so we make no claim either way.
+- Three standard fixes (UFF minimisation, sculpting, mutagenesis wizard) did not resolve the M1251 clash seen in the first runs; the reruns did not show it.
 - A reinforcement-learning agent lost to a twenty-line greedy loop.
 - Our model could not represent our own intervention until we added a reaction by hand.
 

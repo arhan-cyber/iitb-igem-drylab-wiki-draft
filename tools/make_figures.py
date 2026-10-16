@@ -42,7 +42,7 @@ def overview():
             ha="center", fontsize=11, color=GREY)
     tiers = [
         ("1  Sequence", "Which residue sets\nchain length?\n\nScFAS2 V1254 matches\nYlFAS I1220\n(34-residue offset)", "BLAST and conservation\nanalysis still open", BLUE),
-        ("2  FAS interaction", "Does the KS pocket\nhold a C14 chain?\n\nBoltz-2, 5 models;\nM1251 clashes\n(0.96 to 1.77 A)", "No MD, no wet-lab\ncheck yet", BLUE),
+        ("2  FAS interaction", "Does the KS pocket\nhold a C14 chain?\n\nBoltz-2, 5 models;\npose depends on the\nconstrained residues", "No MD, no wet-lab\ncheck yet", BLUE),
         ("3  Bridge", "Can the model\nrepresent the mutation?\n\nEarly-release reaction\nadded to Yeast9:\nC14 +2.6%", "Limit is NADPH,\nnot carbon", GREEN),
         ("4  Metabolism", "What can the cell reach?\n\nNo knockout beats\nwild type; one\nbeta-oxidation route", "Yeast9 FBA;\nupper bounds only", GREEN),
         ("5  Trust", "Does 'best' mean\nanything?\n\nPre-flight failed our\nown scoring: best beat\nno-edit by 0.010%", "Search benchmark on a\nsynthetic landscape", ORANGE),

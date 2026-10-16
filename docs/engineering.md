@@ -18,7 +18,7 @@ Our dry lab went through one full Design, Build, Test, Learn cycle, and the Test
 - Brute force over 175 combinations returned a clear winner (FAA1 + FAA4, score 0.202529) against 0.202509 for the unedited strain, a margin of 0.010%. GC-MS composition varies by 1–5% between replicates, so no experiment could separate them. We built pre-flight, six automated checks, and our own scoring failed three of them.
 - A route analysis of the FBA solution showed that the model makes C14:0 only by shortening C16:0 through beta-oxidation. Deleting *POX1* gave exactly zero.
 - Benchmarking the reinforcement-learning agent over 20 seeds showed it found the exact best answer in 10% of runs, against 65% for greedy and 100% for brute force.
-- The structural runs showed unconstrained Boltz-2 does not place the ligand, and that the acyl chain clashes with M1251 in every constrained run.
+- The first structural runs suggested that unconstrained Boltz-2 does not place the ligand and that the acyl chain clashes with M1251. Reruns with five samples did not reproduce either, so we treat both as dependent on the setup.
 
 ## Learn
 
