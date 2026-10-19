@@ -114,7 +114,7 @@ On Windows, if activation reports "running scripts is disabled on this system", 
 | `run_benchmark.py` | Whether a learned search is worthwhile | no | ~5 min |
 | `run_search_comparison.py` | Brute force against greedy search on the real model | yes | ~10 min |
 
-**Expected output.** `run_feasibility.py` prints `Wild-type growth: 0.081100 /h` and ends with `Verdict: SURVIVES`. `run_diagnostics.py` prints `VERDICT: NOT USABLE` and `*** NO PROPOSALS ISSUED ***`. **This failure is the correct result:** it is the demonstration and not a defect, and it shows that the scoring setup of the team could not support a ranking.
+**Expected output.** `run_feasibility.py` prints `Wild-type growth: 0.081100 /h` and ends with `Verdict: SURVIVES`. That growth rate belongs to this tool's own conditions (Yeast9, prototrophic wild type, glucose uptake 1.0 mmol gDW⁻¹ h⁻¹) and is not the BY4742 baseline of the FBA report run, which is 0.09768 h⁻¹ at an uptake of 1.1 ([Model: Data](model#m3)). `run_diagnostics.py` prints `VERDICT: NOT USABLE` and `*** NO PROPOSALS ISSUED ***`. **This failure is the correct result:** it is the demonstration and not a defect, and it shows that the scoring setup of the team could not support a ranking.
 
 ## Design choices and trade-offs {#design-choices-and-trade-offs}
 

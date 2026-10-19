@@ -53,7 +53,7 @@ The added reaction is a modelling hypothesis about what V1254W does, and the lat
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-**Caveat.** The reaction is a modelling hypothesis about the effect of V1254W and inherits assumption A1. The frontier and knockout screen of Step 4 were run on the model without the reaction; repetition with the reaction is **[pending]**.
+**Caveat.** The reaction is a modelling hypothesis about the effect of V1254W and inherits assumption A1; a reaction added by assumption cannot show that the real mutation has the intended effect. The Step 4 results are from the model as released, with no added reaction, and stand on their own; repetition with the reaction is **[pending]**.
 </div>
 
 **Gaps and naming in Yeast9 identified during the work** (from the team's model comparison). Yeast9 was chosen over Yeast8 because it represents more of the required pathways. The following genes were flagged as absent: *PEX11* (β-oxidation), *ATR1* and *CYP94C1* (ω-oxidation). *FOX1* is present as *POX1*, a naming mismatch for the same function. It is hypothesised, but has not been tested, that omission of the two ω-oxidation genes has little effect on yield. **[pending]**

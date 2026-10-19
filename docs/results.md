@@ -11,7 +11,7 @@ In the computer models, yeast can already make pure myristic acid, but only by s
 </div>
 
 1. **Wild-type yeast produced pure C14:0 in the model, at a linear growth cost.** No knockout set improved on wild type. [Details](metabolism)
-2. **The model formed C14:0 only by shortening C16:0 through β-oxidation.** *POX1* catalyses the committed step. [Details](metabolism)
+2. **The model formed C14:0 only through peroxisomal β-oxidation**, mainly by shortening C16:0. *POX1* catalyses the committed step. [Details](metabolism)
 3. **A fatty acid synthase (FAS) early-release reaction raised C14:0 export by 2.6 %.** The limit was NADPH, not chain supply. [Details](bridge)
 4. **The ScFAS2 residue equivalent to the *Yarrowia* chain-length residue is V1254.** M1251 was excluded from mutagenesis; the effect of V1254W in *S. cerevisiae* is an assumption. [Details](sequence)
 5. **The scoring function did not satisfy its own checks.** The best knockout set exceeded the unedited strain by 0.010 %, and the tool issued no proposals. [Details](trust)
@@ -23,22 +23,24 @@ In the computer models, yeast can already make pure myristic acid, but only by s
 <div class="brief" markdown="1">
 <div class="brief-h">In brief</div>
 
-In the model, output of pure myristic acid falls in a straight line as more growth is required, from 0.211 at 10 % of normal growth to 0.024 at 90 % (mmol per gram dry weight per hour). No gene deletion improved on this. **[computed]**
+In the model, output of myristic acid falls as more growth is required, from 0.226 at 10 % of maximum growth to 0.025 at 90 % (mmol per gram dry weight per hour), and is zero at maximum growth. No gene deletion improved on this. **[computed]**
 </div>
 
-Table 1 gives the maximum C14:0 export in Yeast9 when growth is held at a fraction of the wild-type rate (analysis A).
+Table 1 gives the maximum free-myristate export under a minimum growth requirement. The quantity is free C14:0 from the native β-oxidation routes, not methyl myristate and not a measured titre.
 
 <div class="key" markdown="1">
 
-*Table 1. Maximum C14:0 export in Yeast9 at fixed fractions of the wild-type growth rate (analysis A). Model-implied; not validated against wet-lab data.*
+*Table 1. Maximum free-myristate export (mmol gDW⁻¹ h⁻¹) under a minimum growth requirement. Model-implied; not validated against wet-lab data.*
 
-| Growth held at | C14:0 export (mmol gDW⁻¹ h⁻¹) | Purity |
+| Minimum growth | Primary: forward-only | Sensitivity: shipped bounds |
 |---|---|---|
-| 10 % | 0.211 | 100 % |
-| 25 % | 0.178 | 100 % |
-| 50 % | 0.119 | 100 % |
-| 75 % | 0.060 | 100 % |
-| 90 % | 0.024 | 100 % |
+| none | 0.25001 | 0.25692 |
+| 10 % of maximum | 0.22649 | 0.23274 |
+| 25 % | 0.19036 | 0.19647 |
+| 50 % | 0.12719 | 0.13156 |
+| 75 % | 0.06359 | 0.06578 |
+| 90 % | 0.02544 | 0.02631 |
+| 100 % | 0 | 0 |
 
 </div>
 
@@ -47,7 +49,7 @@ Table 1 gives the maximum C14:0 export in Yeast9 when growth is held at a fracti
   <figcaption class="figure-caption"><strong>Figure 1.</strong> Maximum C14 export against the growth rate held (data of Table 1). No knockout set exceeded wild type; sets containing <em>POX1</em> gave exactly zero. Model-implied; not validated against wet-lab data.</figcaption>
 </figure>
 
-A second analysis under different conditions (glucose uptake 1.1 mmol gDW⁻¹ h⁻¹, strain BY4742) gave values about 6–7 % higher with the same shape. The conditions are listed in [Model: Data](model#m3).
+The row without a growth requirement is a zero-growth limit and is not available to a growing culture. The conditions are listed in [Model: Data](model#m3).
 
 ## Metabolic route to C14:0 {#2-how-c140-is-made-in-the-model}
 
@@ -57,7 +59,7 @@ A second analysis under different conditions (glucose uptake 1.1 mmol gDW⁻¹ h
 The model makes myristic acid by one route only: chopping two carbons off palmitic acid, with the gene *POX1* controlling the key step. Deleting *POX1* removed all output. **[computed]**
 </div>
 
-The model contained a single unbranched route: C16:0 → hexadecanoyl-CoA → acyl-CoA oxidase (*POX1*) → enoyl-CoA hydratase → myristoyl-CoA → free C14:0 → export. Deletion of *POX1* gave exactly zero. Loopless flux balance analysis (FBA) and a forced one-way ligase changed the result by at most 2 %.
+The route carrying the flux was a single unbranched path: peroxisomal C16:0-CoA → acyl-CoA oxidase (*POX1*) → hydratase and dehydrogenase (*FOX2*) → thiolase (*POT1*) → myristoyl-CoA → free C14:0 → export, with release by the *TES1* thioesterase. A second route, through C18:1 degradation and re-elongation, is used when the thiolase step is blocked; blocking both abolishes export. Deletion of *POX1* gave exactly zero. Loopless FBA reproduced the same optima, and forcing the ligases one-way lowered export by 2.7–3.3 %.
 
 ## Changes to the plan {#3-what-changed-in-our-plan}
 

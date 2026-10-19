@@ -34,7 +34,7 @@ The tests undermined the plan. The ranking had almost no margin over the unedite
 </div>
 
 - Brute-force evaluation of 175 combinations returned a leading set (FAA1 + FAA4, score 0.202529) against 0.202509 for the unedited strain, a margin of 0.010 %. Gas chromatography–mass spectrometry (GC-MS) composition varies by 1–5 % between replicates, so no experiment could separate the two. Pre-flight, a set of six automated checks, was therefore built, and the team's own scoring function failed three of them.
-- Route analysis of the FBA solution showed that the model forms C14:0 only by shortening C16:0 through β-oxidation. Deletion of *POX1* gave exactly zero.
+- Route analysis of the FBA solution showed that the model forms C14:0 only through peroxisomal β-oxidation, mainly by shortening C16:0. Deletion of *POX1* gave exactly zero.
 - Benchmarking of the reinforcement-learning agent over 20 seeds showed that it found the exact best answer in 10 % of runs, compared with 65 % for greedy search and 100 % for brute force.
 - The first structural runs suggested that unconstrained Boltz-2 does not place the ligand and that the acyl chain overlaps M1251. Reruns with five samples reproduced neither observation, so both are treated as dependent on the setup.
 
@@ -60,7 +60,7 @@ Five lessons followed: the planned deletion strategy was reversed, no ranked lis
 After the new reaction was added, myristic acid output rose by 2.6 % and the limit moved to NADPH. The next cycle repeats the analyses with the reaction and compares the model with published results. **[pending]**
 </div>
 
-The early-release reaction was added and the analysis was repeated: C14:0 export increased by 2.6 % and the limit moved to NADPH. The next cycle repeats the frontier and knockout screen with the reaction, computes growth penalties and tests the model against published literature outcomes. See [Model](model) and [Results](results).
+The early-release reaction was added and the analysis was repeated: C14:0 export increased by 2.6 % and the limit moved to NADPH. Growth penalties have since been computed for the curated interventions. The next cycle repeats the frontier and knockout screen with the reaction and tests the model against published literature outcomes. See [Model](model) and [Results](results).
 
 <div class="alert alert-secondary" role="alert" markdown="1">
 **Scope.** This cycle is computational. The Test stage is model against model and model against literature; no wet-lab data closed the loop.

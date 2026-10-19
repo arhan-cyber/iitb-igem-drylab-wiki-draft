@@ -13,7 +13,7 @@ The project asks whether baker's yeast could be engineered to make myristic acid
 
 - The work was organised in six steps, each passing one result to the next: sequence → fatty acid synthase (FAS) interaction → bridge → metabolism → trust → process (figure on the [home page](./)).
 - **Central assumption:** a point mutation in *Saccharomyces cerevisiae* FAS2 (V1254W, by analogy with *Yarrowia lipolytica* I1220W) can release C14 early. This is a **[hypothesis]** and has not been established.
-- **Main findings:** the model forms C14:0 only by shortening C16:0 through β-oxidation; no knockout set exceeded wild type; an early-release reaction increased C14 export by only 2.6 % and is limited by NADPH; the team's scoring setup did not satisfy its own checks.
+- **Main findings:** the model forms C14:0 only through peroxisomal β-oxidation, mainly by shortening C16:0; no knockout set exceeded wild type, which follows largely from the method, since a deletion can only remove flux; an early-release reaction increased C14 export by only 2.6 % and is limited by NADPH; the team's scoring setup did not satisfy its own checks.
 - **Navigation:** [Data](#m3) · [Assumptions](#m4) · [1 Sequence](sequence) · [2 FAS interaction](fas-interaction) · [3 Bridge](bridge) · [4 Metabolism](metabolism) · [5 Trust](trust) · [6 Process](process) · [Effect on design](#m6) · [Limits](#m7) · [Reproducibility](#m8) · [References](#references). Further pages under Model: [Engineering](engineering), [Results](results), [Life Cycle Assessment](life-cycle-assessment).
 
 ## Approach and outputs of each step {#m1}
@@ -46,7 +46,7 @@ Each step answers one question with one method: a sequence comparison, a protein
 <div class="brief" markdown="1">
 <div class="brief-h">In brief</div>
 
-Protein structures come from public databases, and the metabolic model is the community yeast model Yeast9. Two flux analyses were run under slightly different conditions, so their numbers differ by 6–7 %, and this has not yet been reconciled. **[pending]**
+Protein structures come from public databases, and the metabolic model is the community yeast model Yeast-GEM v9.1.1. The strain, medium and solver settings of the flux analysis are stated in full, together with the medium assumption that sets the growth baseline. **[computed]**
 </div>
 
 ### Structures **[literature]**
@@ -70,22 +70,24 @@ Two FBA analyses exist. They use different conditions, so their numbers differ b
 
 <div class="key" markdown="1">
 
-*Table 3. Conditions of the two FBA analyses.*
+*Table 3. Conditions of the FBA analysis.*
 
-| | Analysis A (pre-flight / repository) | Analysis B (FBA report) |
-|---|---|---|
-| Model | Yeast9 (`data/models/yeast-GEM.xml`) | Yeast-GEM v9.1.1: 4,105 reactions, 2,748 metabolites, 1,143 genes |
-| Glucose uptake | 1.0 mmol gDW⁻¹ h⁻¹ | 1.1 mmol gDW⁻¹ h⁻¹ |
-| Non-growth-associated maintenance (NGAM) | 0.7 mmol ATP gDW⁻¹ h⁻¹ | 0.7 mmol ATP gDW⁻¹ h⁻¹ |
-| Strain | Wild type | BY4742 (HIS3, LEU2, LYS2 deleted; His, Leu, Lys supplied) |
-| Wild-type growth | 0.0811 h⁻¹ | 0.09768 h⁻¹ |
-| Fatty-acid-CoA ligases | Forward-only in the robustness check | Forward-only (primary); original bounds as sensitivity |
-| Solver | GLPK | GLPK |
+| | |
+|---|---|
+| Model | Yeast-GEM v9.1.1: 4,105 reactions, 2,748 metabolites, 1,143 genes |
+| Strain | BY4742 (HIS3, LEU2, LYS2 deleted, URA3 retained; His, Leu, Lys supplied) |
+| Glucose uptake | 1.1 mmol gDW⁻¹ h⁻¹ |
+| Oxygen | unlimited |
+| Non-growth-associated maintenance (NGAM) | 0.7 mmol ATP gDW⁻¹ h⁻¹ |
+| Supplements | His, Leu and Lys uptake capped at the model's own biomass requirement — a stated assumption, not a measurement |
+| Fatty-acid-CoA ligases | Forward-only (primary scenario); bounds as shipped (sensitivity) |
+| Maximum growth | 0.09768 h⁻¹ (primary), 0.09769 h⁻¹ (shipped bounds) |
+| Solver | GLPK |
 
 </div>
 
 <div class="alert alert-secondary" role="alert" markdown="1">
-**[pending]** The two analyses remain to be reconciled: the exact model version in each (a team comment names v9.0.2 for one run) and the reason for the growth-rate difference must be confirmed. Glucose uptake differs (1.0 against 1.1 mmol gDW⁻¹ h⁻¹), which probably accounts for most of the difference.
+The supplement cap sets the baseline: uncapping it lets the model catabolise leucine as a carbon source and raises maximum growth to 0.159 h⁻¹. The separate pre-flight tool ([Software](software)) runs a prototrophic wild type at a glucose uptake of 1.0 mmol gDW⁻¹ h⁻¹ and reports 0.0811 h⁻¹; that figure belongs to its own conditions and is not this baseline.
 </div>
 
 ### Literature inputs **[literature]**
@@ -158,9 +160,10 @@ There are no laboratory data of any kind, so every number is a statement about a
 | No molecular dynamics or relaxed ligand-bound pocket | Pocket geometry is rigid-receptor | Large-scale; a short minimisation is feasible |
 | No formal proximity cut-off; no consensus across models | The candidate set rests on literature precedent plus inspection | **[pending]** |
 | Conservation and phylogenetic analysis | Further mutation sites are blocked on it | **[pending]** |
-| Growth penalty not computed | The cost of each intervention is not quantified | **[pending]** |
+| Growth penalty computed for the 37 curated interventions only | The cost of the genome-wide candidates is not quantified | **[pending]** in part |
 | Knockout screen run without the early-release reaction | Repetition required | **[pending]** |
-| Two FBA analyses use different conditions | Numbers differ by 6–7 % | **[pending]** reconciliation |
+| The two runs use different conditions | Numbers differ by 6–7 %, accounted for by glucose uptake and supplements | Reconciled |
+| 202 internal reactions fail the model's mass-balance check | An illustrative, assumption-dependent shift of about 3.4 % in export at non-zero growth; direction unresolved | Reported, not resolved |
 | FBA yields an upper bound, not a probability | No probability of success is reported anywhere | By construction |
 | Free myristate modelled, not methyl myristate | Coolant titre is not predicted | By construction |
 | The RL agent is a simple linear Q-learner; benchmark on a synthetic landscape | Shows that this agent was outperformed, not that RL cannot work | Stated |
@@ -178,7 +181,9 @@ There are no laboratory data of any kind, so every number is a statement about a
 The checking tool is open source (MIT licence) and two example scripts reproduce its main outputs. The expected output of the diagnostics script is a refusal to issue proposals, which is the demonstration and not a fault. **[computed]**
 </div>
 
-Code: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a> (MIT licence).
+Flux balance analysis code, result files and figures: <a href="https://github.com/biprabhanu/yeast-genome-scale-fba-metabolic-modeling">github.com/biprabhanu/yeast-genome-scale-fba-metabolic-modeling</a>. Each analysis is a module run from the project root, and the figures on the [Metabolism](metabolism) page are the ones that repository generates from its own result files.
+
+Pre-flight checking tool: <a href="https://github.com/Siddhant-Chowdhary/igem-preflight">github.com/Siddhant-Chowdhary/igem-preflight</a> (MIT licence).
 
 ```
 git clone <repository>
